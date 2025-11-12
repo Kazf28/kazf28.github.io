@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kaz Fukuhara – Portfolio</title>
+  <meta name="description" content="Researcher portfolio and selected works." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #f8f9fb;
+      --card: #ffffff;
+      --text: #1f2937; /* slate-800 */
+      --muted: #6b7280; /* slate-500 */
+      --link: #0f172a; /* slate-900 */
+      --accent: #111827; /* gray-900 for buttons */
+      --ring: #e5e7eb; /* gray-200 */
+      --maxw: 1100px;
+      --radius: 16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--text);
+      background:var(--bg);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* header */
+    .nav{
+      position:sticky; top:0; z-index:20;
+      background:rgba(248,249,251,.85);
+      backdrop-filter:saturate(1.2) blur(8px);
+      border-bottom:1px solid var(--ring);
+    }
+    .nav-inner{max-width:var(--maxw); margin:0 auto; padding:14px 20px; display:flex; align-items:center; justify-content:space-between}
+    .brand{font-weight:600; letter-spacing:.2px}
+    .icons{display:flex; gap:14px}
+    .icon-btn{width:36px; height:36px; border-radius:12px; display:grid; place-items:center; border:1px solid var(--ring); background:var(--card)}
+    .icon-btn:hover{box-shadow:0 1px 0 rgba(0,0,0,.02), 0 4px 16px rgba(0,0,0,.06)}
+    .icon{width:18px; height:18px; display:block; fill:#111827}
+
+    /* layout */
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:40px 20px}
+    .grid{display:grid; grid-template-columns:1.2fr .8fr; gap:36px; align-items:start}
+
+    /* hero */
+    h1{margin:0 0 18px; font-size:44px; line-height:1.1; letter-spacing:-.02em}
+    p.lead{color:var(--text); opacity:.9; font-size:18px; line-height:1.7}
+
+    /* profile card */
+    .card{background:var(--card); border:1px solid var(--ring); border-radius:var(--radius); overflow:hidden}
+    .portrait {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: center 20%; /* moves frame upward, showing more head */
+    }
+    .card-body strong + br + a,
+    .card-body br + span,
+    .card-body {
+      display: block;
+      margin-left: 10px;
+    }
+
+    /* section */
+    h2{font-size:32px; margin:32px 0 16px}
+    ul.works{list-style:disc; padding-left:24px; margin:0}
+    .work{margin:14px 0 18px}
+    .work-title{font-weight:600}
+    .authors{color:var(--muted)}
+    .venue{font-style:italic; color:var(--muted)}
+
+    /* buttons row */
+    .btns{display:flex; gap:10px; margin-top:10px}
+    .chip{display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border-radius:10px; border:1px solid var(--ring); background:var(--card); font-size:14px}
+    .chip svg{width:16px; height:16px; fill:#111827}
+    .chip:hover{box-shadow:0 1px 0 rgba(0,0,0,.02), 0 6px 18px rgba(0,0,0,.06)}
+
+    /* footer */
+    footer{margin:40px 0 10px; color:var(--muted); font-size:14px}
+
+    /* responsive */
+    @media (max-width: 900px){
+      .grid{grid-template-columns:1fr;}
+      h1{font-size:36px}
+    }
+  </style>
+</head>
+<body>
+  <!-- Top navigation -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">Kaz Fukuhara</div>
+      <nav class="icons" aria-label="External links">
+        <a class="icon-btn" href="https://github.com/Kazf28" aria-label="GitHub" title="GitHub">
+          <!-- GitHub icon -->
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.57 0-.28-.01-1.02-.02-2-3.34.73-4.04-1.61-4.04-1.61-.55-1.38-1.35-1.75-1.35-1.75-1.1-.74.08-.72.08-.72 1.22.09 1.87 1.26 1.87 1.26 1.08 1.85 2.83 1.32 3.52 1.01.11-.79.42-1.32.76-1.62-2.66-.3-5.47-1.33-5.47-5.92 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.51.12-3.15 0 0 1.01-.32 3.31 1.23a11.5 11.5 0 0 1 6.02 0c2.3-1.55 3.31-1.23 3.31-1.23.66 1.64.24 2.85.12 3.15.77.84 1.24 1.91 1.24 3.22 0 4.6-2.81 5.61-5.49 5.91.43.37.81 1.1.81 2.22 0 1.6-.01 2.89-.01 3.28 0 .31.22.69.83.57A12 12 0 0 0 12 .5Z"/></svg>
+        </a>
+        <a class="icon-btn" href="https://www.linkedin.com/in/kazunori-fukuhara-18717721a/" aria-label="LinkedIn" title="LinkedIn">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5.001 2.5 2.5 0 0 1 0-5Zm.02 6H2v11h3V9.5Zm4 0H6v11h3v-5.6c0-2.98 3.5-3.22 3.5 0V20.5h3v-6.62c0-5.36-5.8-5.16-7.5-2.53V9.5Z"/></svg>
+        </a>
+        <a class="icon-btn" href="#" aria-label="CV" title="CV / Resume PDF">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1v5h5"/><path d="M8 13h8M8 17h8M8 9h4"/></svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main class="wrap">
+    <section class="grid">
+      <div>
+        <h1>Kaz Fukuhara</h1>
+        <p class="lead">I develop foundational and applied methods for <strong>AI measurement</strong> and <strong>learning sciences</strong>. My work draws on probabilistic ML and measurement theory to support safe AI systems that serve people across diverse backgrounds.</p>
+
+        <h2>Selected Works</h2>
+        <ul class="works">
+          <li class="work">
+            <div class="work-title">Evaluating Language Models as Human Simulators in Programming Education</div>
+            <div class="authors">Fukuhara, Truong, Nguyen, Domingue, Koyejo, Haber</div>
+            <div class="venue">(2025)</div>
+            <div class="btns">
+              <a class="chip" href="https://www.dropbox.com/scl/fi/58c5ic00ocuompau80d8m/Evaluating-Language-Models-as-Human-Simulators-in-Programming-Education.pdf?rlkey=3t7k0ojp9nvvfo303tt0z2rtr&st=mggpvs5i&dl=0"><svg viewBox="0 0 24 24"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1v5h5"/></svg> Paper</a>
+              <a class="chip" href="https://github.com/sangttruong/codeinsights_llm_simulation"><svg viewBox="0 0 24 24"><path d="M9 19V6h13v13H9Z"/><path d="M2 19V6h4v13H2Z"/></svg> Code</a>
+            </div>
+          </li>
+
+          <li class="work">
+            <div class="work-title">(Working Paper) Guiding LLM-Simulated Students with Psychometric Models: Comparison of IRT vs CDM</div>
+            <div class="authors">Fukuhara, Domingue</div>
+            <div class="venue">(2025)</div>
+            <div class="btns">
+              <a class="chip" href="#"><svg viewBox="0 0 24 24"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1v5h5"/></svg> Paper</a>
+              <a class="chip" href="#"><svg viewBox="0 0 24 24"><path d="M9 19V6h13v13H9Z"/><path d="M2 19V6h4v13H2Z"/></svg> Code</a>
+            </div>
+          </li>
+
+          <li class="work">
+            <div class="work-title">Understanding and Optimizing Virtual Learning Engagement Patterns: A Factor and Cluster Analysis Approach</div>
+            <div class="authors">Fukuhara, Nadela</div>
+            <div class="venue">(2025)</div>
+            <div class="btns">
+              <a class="chip" href="https://www.dropbox.com/scl/fi/2yelz14t82i0ycoycjfg9/Understanding-and-Optimizing-Virtual-Learning-Engagement-Patterns-A-Factor-and-Cluster-Analysis-Approach.pdf?rlkey=7onhjitlbeuhrtcdz4tdr1pty&st=gwykhys7&dl=0"><svg viewBox="0 0 24 24"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1v5h5"/></svg> Paper</a>
+              <a class="chip" href="#"><svg viewBox="0 0 24 24"><path d="M9 19V6h13v13H9Z"/><path d="M2 19V6h4v13H2Z"/></svg> Code</a>
+            </div>
+          </li>
+
+          <li class="work">
+            <div class="work-title">Retention in Gamified Learning: Analyzing Duolingo User Engagement with Machine Learning</div>
+            <div class="authors">Fukuhara, Liu, Shi</div>
+            <div class="venue">(2025)</div>
+            <div class="btns">
+              <a class="chip" href="https://www.dropbox.com/scl/fi/jrenzo7r4cl2xx06ybpok/Retention-in-Gamified-Learning-Analyzing-Duolingo-User-Engagement-with-Machine-Learning.pdf?rlkey=5k0mgteblx0u7wzji9ndd2x1n&st=3cckck3d&dl=0"><svg viewBox="0 0 24 24"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1v5h5"/></svg> Paper</a>
+              <a class="chip" href="https://github.com/Kazf28/CS129-Duolingo"><svg viewBox="0 0 24 24"><path d="M9 19V6h13v13H9Z"/><path d="M2 19V6h4v13H2Z"/></svg> Code</a>
+            </div>
+          </li>
+        </ul>
+
+        <footer>
+          © <span id="year"></span> Kaz Fukuhara. Last updated: <time id="updated"></time>
+        </footer>
+      </div>
+
+      <aside>
+        <div class="card">
+          <img class="portrait" src="https://www.dropbox.com/scl/fi/afzqkkrr7j6fpsp9bb2dq/Kaz-Photo.jpg?rlkey=7t8eztznj5bysy70fdeh8lpog&st=4t7gybwf&raw=1" alt="Kaz Portrait" />
+
+            <strong>Contact</strong><br />
+             kazf28@stanford.edu
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script>
+    // small helpers
+    const y = document.getElementById('year');
+    const u = document.getElementById('updated');
+    if (y) y.textContent = new Date().getFullYear();
+    if (u) u.textContent = new Date(document.lastModified).toLocaleDateString();
+  </script>
+</body>
+</html>

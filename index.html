@@ -3,200 +3,784 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kaz Fukuhara – Portfolio</title>
-  <meta name="description" content="Researcher portfolio and selected works." />
+  <title>Kaz Fukuhara — AI Measurement &amp; Learning Sciences</title>
+  <meta name="description" content="Academic portfolio of Kaz Fukuhara — AI measurement and learning sciences researcher." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
   <style>
-    :root{
-      --bg: #f8f9fb;
-      --card: #ffffff;
-      --text: #1f2937; /* slate-800 */
-      --muted: #6b7280; /* slate-500 */
-      --link: #0f172a; /* slate-900 */
-      --accent: #111827; /* gray-900 for buttons */
-      --ring: #e5e7eb; /* gray-200 */
-      --maxw: 1100px;
-      --radius: 16px;
+    :root {
+      --paper:      #ffffff;
+      --paper-2:    #f4f4f4;
+      --ink:        #0a0a0a;
+      --ink-2:      #2a2a2a;
+      --ink-3:      #6b6b6b;
+      --ink-4:      #a8a8a8;
+      --accent:     #1a1a1a;
+      --rule:       rgba(0,0,0,.10);
+      --rule-strong:rgba(0,0,0,.28);
+      --serif: 'Times New Roman', 'Noto Serif JP', 'EB Garamond', Georgia, serif;
+      --sans:  'Manrope', ui-sans-serif, system-ui, -apple-system, sans-serif;
+      --mono:  'JetBrains Mono', ui-monospace, monospace;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      color:var(--text);
-      background:var(--bg);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
     }
-    a{color:var(--link); text-decoration:none}
-    a:hover{text-decoration:underline}
 
-    /* header */
-    .nav{
-      position:sticky; top:0; z-index:20;
-      background:rgba(248,249,251,.85);
-      backdrop-filter:saturate(1.2) blur(8px);
-      border-bottom:1px solid var(--ring);
+    a { color: inherit; text-decoration: none; }
+    ::selection { background: var(--accent); color: var(--paper); }
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 2px;
     }
-    .nav-inner{max-width:var(--maxw); margin:0 auto; padding:14px 20px; display:flex; align-items:center; justify-content:space-between}
-    .brand{font-weight:600; letter-spacing:.2px}
-    .icons{display:flex; gap:14px}
-    .icon-btn{width:36px; height:36px; border-radius:12px; display:grid; place-items:center; border:1px solid var(--ring); background:var(--card)}
-    .icon-btn:hover{box-shadow:0 1px 0 rgba(0,0,0,.02), 0 4px 16px rgba(0,0,0,.06)}
-    .icon{width:18px; height:18px; display:block; fill:#111827}
 
-    /* layout */
-    .wrap{max-width:var(--maxw); margin:0 auto; padding:40px 20px}
-    .grid{display:grid; grid-template-columns:1.2fr .8fr; gap:36px; align-items:start}
+    /* ── LAYOUT ── */
+    .shell {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 56px 72px 80px;
+      display: grid;
+      grid-template-columns: minmax(260px, 28%) 1fr;
+      gap: 64px;
+      min-height: 100vh;
+    }
+    @media (max-width: 1100px) {
+      .shell { grid-template-columns: 1fr; padding: 40px 32px 64px; gap: 48px; }
+    }
 
-    /* hero */
-    h1{margin:0 0 18px; font-size:44px; line-height:1.1; letter-spacing:-.02em}
-    p.lead{color:var(--text); opacity:.9; font-size:18px; line-height:1.7}
+    /* ── LEFT RAIL ── */
+    .rail {
+      position: sticky;
+      top: 56px;
+      align-self: start;
+      height: calc(100vh - 112px);
+      display: flex;
+      flex-direction: column;
+    }
+    .rail .contact { margin-top: auto; }
+    @media (max-width: 1100px) { .rail { position: static; height: auto; } }
 
-    /* profile card */
-    .card{background:var(--card); border:1px solid var(--ring); border-radius:var(--radius); overflow:hidden}
+    .name-mark {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: .55em;
+      font-family: var(--serif);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 0.92;
+      letter-spacing: -0.02em;
+    }
+    .name-mark .ln { font-size: clamp(34px, 3.4vw, 52px); }
+
+    .name-meta { margin-top: 18px; }
+
+    .name-tag {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-family: var(--sans);
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--ink-2);
+    }
+    .nt-row {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 10px;
+      align-items: baseline;
+    }
+    .nt-kick {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 500;
+      padding-top: 2px;
+    }
+    .nt-row em {
+      font-style: italic;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* Nav */
+    .nav {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 32px 0 0 8px;
+      font-family: var(--serif);
+    }
+    .nav a {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      font-size: 22px;
+      color: var(--ink-3);
+      font-weight: 500;
+      transition: color .25s ease, transform .25s ease;
+      width: max-content;
+    }
+    .nav a .num {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 14px;
+      color: var(--ink-4);
+      font-weight: 400;
+      min-width: 1.4em;
+    }
+    .nav a:hover { color: var(--ink); transform: translateX(4px); }
+    .nav a.active { color: var(--accent); font-weight: 700; }
+    .nav a.active .num { color: var(--accent); }
+
+    /* Contact */
+    .contact {
+      border-top: 1px solid var(--rule);
+      padding-top: 22px;
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .contact .label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+      margin-bottom: 4px;
+    }
+    .c-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--ink-2);
+      transition: color .2s ease;
+    }
+    .c-row:hover { color: var(--accent); }
+    .c-row svg { width: 16px; height: 16px; flex: none; opacity: .8; }
+    .c-row .lk-arrow {
+      margin-left: auto;
+      opacity: 0;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+    .c-row:hover .lk-arrow { opacity: 1; transform: translateX(2px); }
+
+    /* ── RIGHT CONTENT ── */
+    .content { min-width: 0; padding-top: 8px; }
+
+    .hero-statement {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: clamp(28px, 3.3vw, 44px);
+      line-height: 1.18;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin: 0 0 16px;
+    }
+    .hero-statement em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero-sub {
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--ink-2);
+      max-width: 56ch;
+      margin: 0 0 56px;
+    }
+
+    /* Sections */
+    section { scroll-margin-top: 40px; padding-top: 64px; }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 36px;
+    }
+    .section-head .kanji-num {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .section-head h2 {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: clamp(36px, 4.2vw, 56px);
+      margin: 0;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .section-head .ord {
+      margin-left: auto;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 36px;
+      align-items: start;
+    }
+    @media (max-width: 720px) { .about-grid { grid-template-columns: 1fr; } }
+
     .portrait {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      object-position: center 20%; /* moves frame upward, showing more head */
+      width: 220px;
+      height: calc(220px * 1.28);
+      position: relative;
+      background: var(--paper-2);
+      overflow: hidden;
+      flex-shrink: 0;
     }
-    .card-body strong + br + a,
-    .card-body br + span,
-    .card-body {
+    .portrait::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid var(--rule-strong);
+      pointer-events: none;
+    }
+    .portrait img {
       display: block;
-      margin-left: 10px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    @media (max-width: 720px) {
+      .portrait { width: 100%; height: auto; aspect-ratio: 1 / 1.28; }
     }
 
-    /* section */
-    h2{font-size:32px; margin:32px 0 16px}
-    ul.works{list-style:disc; padding-left:24px; margin:0}
-    .work{margin:14px 0 18px}
-    .work-title{font-weight:600}
-    .authors{color:var(--muted)}
-    .venue{font-style:italic; color:var(--muted)}
+    .about-body p {
+      margin: 0 0 16px;
+      color: var(--ink-2);
+      font-size: 16.5px;
+      line-height: 1.7;
+    }
+    .about-body p a {
+      color: var(--ink);
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 1px;
+    }
+    .about-body p a:hover { color: var(--accent); }
+    .about-body strong { color: var(--ink); font-weight: 600; }
 
-    /* buttons row */
-    .btns{display:flex; gap:10px; margin-top:10px}
-    .chip{display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border-radius:10px; border:1px solid var(--ring); background:var(--card); font-size:14px}
-    .chip svg{width:16px; height:16px; fill:#111827}
-    .chip:hover{box-shadow:0 1px 0 rgba(0,0,0,.02), 0 6px 18px rgba(0,0,0,.06)}
+    .meta-list {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      row-gap: 10px;
+      column-gap: 16px;
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px dashed var(--rule);
+      font-size: 14px;
+    }
+    .meta-list dt {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+      align-self: baseline;
+    }
+    .meta-list dd { margin: 0; color: var(--ink-2); }
+    .meta-list dd b { color: var(--ink); font-weight: 600; }
 
-    /* footer */
-    footer{margin:40px 0 10px; color:var(--muted); font-size:14px}
+    /* Research */
+    .papers { display: flex; flex-direction: column; }
+    .paper {
+      display: grid;
+      grid-template-columns: 64px 1fr auto;
+      gap: 24px;
+      padding: 28px 0;
+      border-top: 1px solid var(--rule);
+      align-items: start;
+    }
+    .paper:last-child { border-bottom: 1px solid var(--rule); }
+    @media (max-width: 720px) {
+      .paper { grid-template-columns: 1fr; }
+    }
+    .paper .year {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: .08em;
+      color: var(--ink-3);
+      padding-top: 4px;
+    }
+    .paper-body { min-width: 0; }
+    .paper-tag {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .paper-title {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 1.28;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin: 0 0 8px;
+    }
+    .paper-authors {
+      font-size: 14.5px;
+      color: var(--ink-3);
+      margin: 0;
+    }
+    .paper-authors b { color: var(--ink); font-weight: 600; }
+    .paper-actions { display: flex; gap: 8px; padding-top: 4px; }
 
-    /* responsive */
-    @media (max-width: 900px){
-      .grid{grid-template-columns:1fr;}
-      h1{font-size:36px}
+    /* Pills */
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border: 1px solid var(--rule-strong);
+      border-radius: 999px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--ink-2);
+      background: transparent;
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
+      cursor: pointer;
+    }
+    .pill:hover {
+      background: var(--ink);
+      color: var(--paper);
+      border-color: var(--ink);
+    }
+    .pill svg { width: 12px; height: 12px; }
+
+    /* Projects */
+    .project {
+      border: 1px solid var(--rule-strong);
+      padding: 32px;
+      position: relative;
+      background: rgba(255,255,255,.35);
+      transition: background .25s ease;
+    }
+    .project:hover { background: rgba(255,255,255,.6); }
+    .project .corner {
+      position: absolute;
+      top: -1px;
+      right: -1px;
+      background: var(--ink);
+      color: var(--paper);
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .18em;
+      padding: 6px 12px;
+      text-transform: uppercase;
+    }
+    .project h3 {
+      font-family: var(--serif);
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 14px 0 6px;
+      line-height: 1.05;
+    }
+    .project h3 .accent-c { color: var(--accent); }
+    .project .tagline {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 18px;
+      color: var(--ink-3);
+      margin: 0 0 18px;
+    }
+    .project-body p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--ink-2);
+      margin: 0 0 14px;
+      max-width: 60ch;
+    }
+    .project-body strong { color: var(--ink); font-weight: 600; }
+    .project-links {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 96px;
+      padding-top: 28px;
+      border-top: 1px solid var(--rule);
+      color: var(--ink-4);
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
     }
   </style>
 </head>
 <body>
-  <!-- Top navigation -->
-  <header class="nav">
-    <div class="nav-inner">
-      <div class="brand">Kaz Fukuhara</div>
-      <nav class="icons" aria-label="External links">
-        <a class="icon-btn" href="https://github.com/Kazf28" aria-label="GitHub" title="GitHub">
-          <!-- GitHub icon -->
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.57 0-.28-.01-1.02-.02-2-3.34.73-4.04-1.61-4.04-1.61-.55-1.38-1.35-1.75-1.35-1.75-1.1-.74.08-.72.08-.72 1.22.09 1.87 1.26 1.87 1.26 1.08 1.85 2.83 1.32 3.52 1.01.11-.79.42-1.32.76-1.62-2.66-.3-5.47-1.33-5.47-5.92 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.51.12-3.15 0 0 1.01-.32 3.31 1.23a11.5 11.5 0 0 1 6.02 0c2.3-1.55 3.31-1.23 3.31-1.23.66 1.64.24 2.85.12 3.15.77.84 1.24 1.91 1.24 3.22 0 4.6-2.81 5.61-5.49 5.91.43.37.81 1.1.81 2.22 0 1.6-.01 2.89-.01 3.28 0 .31.22.69.83.57A12 12 0 0 0 12 .5Z"/></svg>
+
+<div class="shell">
+
+  <!-- ── LEFT RAIL ── -->
+  <aside class="rail">
+    <div>
+      <div class="name-mark">
+        <span class="ln">Kaz</span>
+        <span class="ln">Fukuhara</span>
+      </div>
+
+      <div class="name-meta">
+        <div class="name-tag">
+          <div class="nt-row">
+            <span class="nt-kick">Now</span>
+            <span>Stanford GSE · <em>M.S. Education Data Science</em></span>
+          </div>
+          <div class="nt-row">
+            <span class="nt-kick">Fall&nbsp;2026</span>
+            <span>UCL Knowledge Lab · <em>Ph.D.</em> with Prof. Mutlu Çukurova</span>
+          </div>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Sections">
+        <a href="#about" data-nav="about">
+          <span class="num">一</span>
+          <span>About</span>
         </a>
-        <a class="icon-btn" href="https://www.linkedin.com/in/kazunori-fukuhara-18717721a/" aria-label="LinkedIn" title="LinkedIn">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5.001 2.5 2.5 0 0 1 0-5Zm.02 6H2v11h3V9.5Zm4 0H6v11h3v-5.6c0-2.98 3.5-3.22 3.5 0V20.5h3v-6.62c0-5.36-5.8-5.16-7.5-2.53V9.5Z"/></svg>
+        <a href="#research" data-nav="research">
+          <span class="num">二</span>
+          <span>Research</span>
         </a>
-        <a class="icon-btn" href="#" aria-label="CV" title="CV / Resume PDF">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1v5h5"/><path d="M8 13h8M8 17h8M8 9h4"/></svg>
+        <a href="#projects" data-nav="projects">
+          <span class="num">三</span>
+          <span>Projects</span>
         </a>
       </nav>
     </div>
-  </header>
 
-  <!-- Main content -->
-  <main class="wrap">
-    <section class="grid">
-      <div>
-        <h1>Kaz Fukuhara</h1>
-        <p class="lead">I develop foundational and applied methods for <strong>AI measurement</strong> and <strong>learning sciences</strong>. My work draws on probabilistic ML and measurement theory to support safe AI systems that serve people across diverse backgrounds.</p>
+    <div class="contact">
+      <div class="label">Contact / Elsewhere</div>
 
-        <h2>Selected Works</h2>
-        <ul class="works">
-          <li class="work">
-            <div class="work-title">Evaluating Language Models as Human Simulators in Programming Education</div>
-            <div class="authors">Fukuhara, Truong, Nguyen, Domingue, Koyejo, Haber</div>
-            <div class="venue">(2025)</div>
-            <div class="btns">
-              <a class="chip" href="https://www.dropbox.com/scl/fi/d1i52gj0ttwjqakubjd2k/Evaluating-Language-Models-as-Human-Simulators-in-Programming-Education.pdf?rlkey=i4sovccgrg5xjppzm78dcinkl&st=ddlafrlx&dl=0"><svg viewBox="0 0 24 24"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1v5h5"/></svg> Paper</a>
-              <a class="chip" href="https://github.com/sangttruong/codeinsights_llm_simulation"><svg viewBox="0 0 24 24"><path d="M9 19V6h13v13H9Z"/><path d="M2 19V6h4v13H2Z"/></svg> Code</a>
-            </div>
-          </li>
+      <a class="c-row" href="mailto:kazf28@stanford.edu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <rect x="3" y="5" width="18" height="14" rx="1"/>
+          <path d="M3 7l9 6 9-6"/>
+        </svg>
+        <span>kazf28@stanford.edu</span>
+        <span class="lk-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="16" height="16">
+            <path d="M5 12h14M13 5l7 7-7 7"/>
+          </svg>
+        </span>
+      </a>
 
-          <li class="work">
-            <div class="work-title">(Working Paper) Guiding LLM-Simulated Students with Psychometric Models: Comparison of IRT vs CDM</div>
-            <div class="authors">Fukuhara, Domingue</div>
-            <div class="venue">(2025)</div>
-            <div class="btns">
-              <a class="chip" href="#"><svg viewBox="0 0 24 24"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1v5h5"/></svg> Paper</a>
-              <a class="chip" href="#"><svg viewBox="0 0 24 24"><path d="M9 19V6h13v13H9Z"/><path d="M2 19V6h4v13H2Z"/></svg> Code</a>
-            </div>
-          </li>
+      <a class="c-row" href="https://www.linkedin.com/in/kazunori-fukuhara-18717721a/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/>
+        </svg>
+        <span>LinkedIn</span>
+        <span class="lk-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="16" height="16">
+            <path d="M5 12h14M13 5l7 7-7 7"/>
+          </svg>
+        </span>
+      </a>
 
-          <li class="work">
-            <div class="work-title">(Working Paper) Evaluating LLM Adaptation Techniques to Support Belonging Centered Instruction in Elementary Mathematics Classrooms</div>
-            <div class="authors">Shi, Fukuhara</div>
-            <div class="venue">(2025)</div>
-            <div class="btns">
-              <a class="chip" href="https://www.dropbox.com/scl/fi/ep6ghiih9ft2ogvhtzp8j/Evaluating-LLM-Adaptation-Techniques-to-Support-Belonging-Centered-Instruction-in-Elementary-Mathematics-Classrooms.pdf?rlkey=278oskoqxgsq9m69u8jgbbdw4&st=qgo46b1i&dl=0"><svg viewBox="0 0 24 24"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1v5h5"/></svg> Paper</a>
-              <a class="chip" href="#"><svg viewBox="0 0 24 24"><path d="M9 19V6h13v13H9Z"/><path d="M2 19V6h4v13H2Z"/></svg> Code</a>
-            </div>
-          </li>
+      <a class="c-row" href="https://github.com/Kazf28" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-2.13c-3.2.69-3.87-1.36-3.87-1.36-.52-1.34-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.5 3.17-1.18 3.17-1.18.64 1.59.24 2.77.12 3.06.74.81 1.18 1.84 1.18 3.1 0 4.42-2.7 5.39-5.27 5.68.41.36.78 1.06.78 2.14v3.18c0 .31.21.66.79.55C20.22 21.38 23.5 17.07 23.5 12 23.5 5.65 18.35.5 12 .5z"/>
+        </svg>
+        <span>GitHub · @Kazf28</span>
+        <span class="lk-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="16" height="16">
+            <path d="M5 12h14M13 5l7 7-7 7"/>
+          </svg>
+        </span>
+      </a>
 
-          <li class="work">
-            <div class="work-title">Understanding and Optimizing Virtual Learning Engagement Patterns: A Factor and Cluster Analysis Approach</div>
-            <div class="authors">Fukuhara, Nadela</div>
-            <div class="venue">(2025)</div>
-            <div class="btns">
-              <a class="chip" href="https://www.dropbox.com/scl/fi/2yelz14t82i0ycoycjfg9/Understanding-and-Optimizing-Virtual-Learning-Engagement-Patterns-A-Factor-and-Cluster-Analysis-Approach.pdf?rlkey=7onhjitlbeuhrtcdz4tdr1pty&st=gwykhys7&dl=0"><svg viewBox="0 0 24 24"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1v5h5"/></svg> Paper</a>
-              <a class="chip" href="#"><svg viewBox="0 0 24 24"><path d="M9 19V6h13v13H9Z"/><path d="M2 19V6h4v13H2Z"/></svg> Code</a>
-            </div>
-          </li>
+      <a class="c-row" href="https://note.com/kaz_edtech28" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M4 4h12l4 4v12H4z"/>
+          <path d="M16 4v4h4"/>
+          <path d="M8 12h8M8 16h6"/>
+        </svg>
+        <span>note · 日本語ブログ</span>
+        <span class="lk-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="16" height="16">
+            <path d="M5 12h14M13 5l7 7-7 7"/>
+          </svg>
+        </span>
+      </a>
 
-          <li class="work">
-            <div class="work-title">Retention in Gamified Learning: Analyzing Duolingo User Engagement with Machine Learning</div>
-            <div class="authors">Fukuhara, Liu, Shi</div>
-            <div class="venue">(2025)</div>
-            <div class="btns">
-              <a class="chip" href="https://www.dropbox.com/scl/fi/jrenzo7r4cl2xx06ybpok/Retention-in-Gamified-Learning-Analyzing-Duolingo-User-Engagement-with-Machine-Learning.pdf?rlkey=5k0mgteblx0u7wzji9ndd2x1n&st=3cckck3d&dl=0"><svg viewBox="0 0 24 24"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1v5h5"/></svg> Paper</a>
-              <a class="chip" href="https://github.com/Kazf28/CS129-Duolingo"><svg viewBox="0 0 24 24"><path d="M9 19V6h13v13H9Z"/><path d="M2 19V6h4v13H2Z"/></svg> Code</a>
-            </div>
-          </li>
-        </ul>
+      <a class="c-row" href="https://www.dropbox.com/scl/fi/58c5ic00ocuompau80d8m/Evaluating-Language-Models-as-Human-Simulators-in-Programming-Education-1.pdf?rlkey=3t7k0ojp9nvvfo303tt0z2rtr&st=tmp3l0d1&dl=0" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M6 2h9l5 5v15H6z"/>
+          <path d="M15 2v5h5"/>
+        </svg>
+        <span>Curriculum Vitæ</span>
+        <span class="lk-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="16" height="16">
+            <path d="M5 12h14M13 5l7 7-7 7"/>
+          </svg>
+        </span>
+      </a>
+    </div>
+  </aside>
 
-        <footer>
-          © <span id="year"></span> Kaz Fukuhara. Last updated: <time id="updated"></time>
-        </footer>
-      </div>
+  <!-- ── RIGHT CONTENT ── -->
+  <main class="content">
 
-      <aside>
-        <div class="card">
-          <img class="portrait" src="https://www.dropbox.com/scl/fi/afzqkkrr7j6fpsp9bb2dq/Kaz-Photo.jpg?rlkey=7t8eztznj5bysy70fdeh8lpog&st=4t7gybwf&raw=1" alt="Kaz Portrait" />
+    <!-- Hero -->
+    <p class="hero-statement">
+      I build foundational and applied methods for
+      <em>AI&nbsp;measurement</em> and the
+      <em>learning&nbsp;sciences</em>.
+    </p>
+    <p class="hero-sub">
+      My work draws on probabilistic ML and measurement theory to support safe AI systems that
+      serve people across diverse backgrounds — with a focus on how language models can be
+      evaluated, guided, and trusted inside real classrooms.
+    </p>
 
-            <strong>Contact</strong><br />
-             kazf28@stanford.edu
-          </div>
+    <!-- About -->
+    <section id="about">
+      <header class="section-head">
+        <span class="kanji-num" aria-hidden="true">一</span>
+        <h2>About</h2>
+        <span class="ord">01 / 03</span>
+      </header>
+
+      <div class="about-grid">
+        <div class="portrait">
+          <img
+            src="https://www.dropbox.com/scl/fi/afzqkkrr7j6fpsp9bb2dq/Kaz-Photo.jpg?rlkey=7t8eztznj5bysy70fdeh8lpog&st=4t7gybwf&raw=1"
+            alt="Kaz Fukuhara"
+          />
         </div>
-      </aside>
-    </section>
-  </main>
 
-  <script>
-    // small helpers
-    const y = document.getElementById('year');
-    const u = document.getElementById('updated');
-    if (y) y.textContent = new Date().getFullYear();
-    if (u) u.textContent = new Date(document.lastModified).toLocaleDateString();
-  </script>
+        <div class="about-body">
+          <p>
+            I'm a <strong>second-year M.S. student</strong> at the
+            <a href="https://ed.stanford.edu/" target="_blank" rel="noopener">Stanford Graduate School of Education</a>,
+            working with
+            <a href="https://ed.stanford.edu/faculty/bdomingu" target="_blank" rel="noopener">Associate Professor Benjamin Domingue</a>.
+            From <strong>Fall 2026</strong> I will be pursuing my Ph.D. with
+            <a href="https://www.ucl.ac.uk/" target="_blank" rel="noopener">Professor Mutlu Çukurova at University College London</a>.
+          </p>
+          <p>
+            My research sits at the intersection of <strong>psychometrics</strong>, <strong>probabilistic
+            machine learning</strong>, and <strong>education</strong>. I study how language models can simulate
+            learners, how measurement theory can keep their behaviour faithful, and how to build
+            adaptive systems that meaningfully support students — not just plausibly look like they do.
+          </p>
+
+          <dl class="meta-list">
+            <dt>Now</dt>
+            <dd><b>Stanford GSE</b>, M.S. — advisor: B. Domingue</dd>
+
+            <dt>Fall 2026</dt>
+            <dd><b>UCL</b>, Ph.D. — advisor: M. Çukurova</dd>
+
+            <dt>Interests</dt>
+            <dd>AI measurement · IRT / CDM · LLM-simulated learners · belonging-centered instruction</dd>
+
+            <dt>Based in</dt>
+            <dd>Stanford, California &nbsp;·&nbsp; <span style="font-family:'Noto Serif JP',serif">東京 → 加州</span></dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research -->
+    <section id="research">
+      <header class="section-head">
+        <span class="kanji-num" aria-hidden="true">二</span>
+        <h2>Research</h2>
+        <span class="ord">02 / 03</span>
+      </header>
+
+      <div class="papers">
+
+        <article class="paper">
+          <div class="year">2025</div>
+          <div class="paper-body">
+            <div class="paper-tag">Published</div>
+            <h3 class="paper-title">Evaluating Language Models as Human Simulators in Programming Education</h3>
+            <p class="paper-authors"><b>Fukuhara</b>, Truong, Nguyen, Domingue, Koyejo, Haber</p>
+          </div>
+          <div class="paper-actions">
+            <a class="pill" href="#" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/>
+              </svg>
+              Paper
+            </a>
+            <a class="pill" href="#" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/>
+              </svg>
+              Code
+            </a>
+          </div>
+        </article>
+
+        <article class="paper">
+          <div class="year">2025</div>
+          <div class="paper-body">
+            <div class="paper-tag">Working Paper</div>
+            <h3 class="paper-title">Guiding LLM-Simulated Students with Psychometric Models: A Comparison of IRT vs CDM</h3>
+            <p class="paper-authors"><b>Fukuhara</b>, Domingue</p>
+          </div>
+          <div class="paper-actions">
+            <a class="pill" href="#" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/>
+              </svg>
+              Paper
+            </a>
+            <a class="pill" href="#" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/>
+              </svg>
+              Code
+            </a>
+          </div>
+        </article>
+
+        <article class="paper">
+          <div class="year">2025</div>
+          <div class="paper-body">
+            <div class="paper-tag">Working Paper</div>
+            <h3 class="paper-title">Evaluating LLM Adaptation Techniques to Support Belonging-Centered Instruction in Elementary Mathematics Classrooms</h3>
+            <p class="paper-authors">Shi, <b>Fukuhara</b></p>
+          </div>
+          <div class="paper-actions">
+            <a class="pill" href="#" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/>
+              </svg>
+              Paper
+            </a>
+            <a class="pill" href="#" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/>
+              </svg>
+              Code
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <header class="section-head">
+        <span class="kanji-num" aria-hidden="true">三</span>
+        <h2>Projects</h2>
+        <span class="ord">03 / 03</span>
+      </header>
+
+      <div class="project">
+        <div class="corner">In Build · Stanford</div>
+        <div class="paper-tag" style="margin-bottom:0">Platform / Ecosystem</div>
+        <h3>Research<span class="accent-c">C</span></h3>
+        <p class="tagline">A research-industry ecosystem for university students.</p>
+        <div class="project-body">
+          <p>
+            I work on improving the existing research–industry ecosystem in universities by building
+            <strong>ResearchC</strong>, a Stanford-based platform that helps student researchers find
+            <strong>collaborators</strong>, <strong>mentorship</strong>, and
+            <strong>cross-departmental research opportunities</strong>.
+          </p>
+          <p>
+            Through ResearchC, I envision higher-education students leveraging research for their own
+            goals — in academia or in industry — to maximise their learning opportunities.
+          </p>
+        </div>
+        <div class="project-links">
+          <a class="pill" href="https://v0-research-c.vercel.app/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M14 4h6v6"/><path d="M20 4l-9 9"/>
+              <path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/>
+            </svg>
+            About the platform
+          </a>
+          <a class="pill" href="https://researchc-psi.vercel.app/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M14 4h6v6"/><path d="M20 4l-9 9"/>
+              <path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/>
+            </svg>
+            Live platform
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>Updated May 2026</span>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+  const sections = ["about", "research", "projects"];
+  const navLinks = {};
+  sections.forEach(id => {
+    navLinks[id] = document.querySelector(`.nav a[data-nav="${id}"]`);
+  });
+
+  const observer = new IntersectionObserver(
+    entries => {
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+      if (visible[0]) {
+        const activeId = visible[0].target.id;
+        sections.forEach(s => navLinks[s] && navLinks[s].classList.remove("active"));
+        if (navLinks[activeId]) navLinks[activeId].classList.add("active");
+      }
+    },
+    { rootMargin: "-30% 0px -55% 0px", threshold: [0, 0.25, 0.5, 1] }
+  );
+
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+</script>
+
 </body>
 </html>

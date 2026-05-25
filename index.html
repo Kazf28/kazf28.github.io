@@ -68,12 +68,11 @@
       position: sticky;
       top: 56px;
       align-self: start;
-      height: calc(100vh - 112px);
       display: flex;
       flex-direction: column;
     }
-    .rail .contact { margin-top: auto; }
-    @media (max-width: 1100px) { .rail { position: static; height: auto; } }
+    .rail .contact { margin-top: 40px; }
+    @media (max-width: 1100px) { .rail { position: static; } }
 
     .name-mark {
       display: flex;
@@ -194,6 +193,7 @@
       letter-spacing: -0.01em;
       color: var(--ink);
       margin: 0 0 16px;
+      max-width: 680px;
     }
     .hero-statement em {
       font-style: italic;
@@ -203,7 +203,7 @@
       font-size: 17px;
       line-height: 1.6;
       color: var(--ink-2);
-      max-width: 56ch;
+      max-width: 680px;
       margin: 0 0 56px;
     }
 

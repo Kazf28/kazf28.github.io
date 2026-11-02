@@ -3,902 +3,865 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kaz Fukuhara, AI Measurement &amp; Learning Sciences</title>
-  <meta name="description" content="Kaz Fukuhara is an MPhil student at the UCL Knowledge Lab researching AI measurement, psychometrics and LLM-simulated learners." />
-  <meta name="theme-color" content="#1b1d1a" />
-  <meta name="color-scheme" content="dark" />
-  <meta property="og:title" content="Kaz Fukuhara, AI Measurement &amp; Learning Sciences" />
-  <meta property="og:description" content="Drag a student's ability and watch an LLM fail to struggle. Research on AI measurement and the learning sciences." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://kazf28.github.io/" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231b1d1a'/%3E%3Cellipse cx='16' cy='16' rx='7.5' ry='11.5' fill='%23ff6a4d'/%3E%3C/svg%3E" />
+  <title>Kaz Fukuhara — AI Measurement &amp; Learning Sciences</title>
+  <meta name="description" content="Academic portfolio of Kaz Fukuhara — AI measurement and learning sciences researcher." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..700&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --ground:   #1b1d1a;
-      --ground-2: #262924;
-      --ground-3: #33372f;
-      --ink:      #f0efe9;
-      --ink-2:    #bfc0b6;
-      --ink-3:    #8f9187;
-      --mark:     #ff6a4d;
-      --paper:    #e7e8e2;
-      --paper-2:  #d9dad2;
-      --on-paper: #1b1d1a;
-      --on-paper-2: #4b4d46;
-      --mark-on-paper: #b5321a;
-      --sans:  'Archivo', ui-sans-serif, system-ui, sans-serif;
-      --serif: 'Newsreader', 'Hiragino Mincho ProN', Georgia, serif;
+      --paper:      #ffffff;
+      --paper-2:    #f4f4f4;
+      --ink:        #0a0a0a;
+      --ink-2:      #2a2a2a;
+      --ink-3:      #6b6b6b;
+      --ink-4:      #a8a8a8;
+      --accent:     #1a1a1a;
+      --rule:       rgba(0,0,0,.10);
+      --rule-strong:rgba(0,0,0,.28);
+      --serif: 'Times New Roman', 'Noto Serif JP', 'EB Garamond', Georgia, serif;
+      --sans:  'Manrope', ui-sans-serif, system-ui, -apple-system, sans-serif;
       --mono:  'JetBrains Mono', ui-monospace, monospace;
-      --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
-      --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
-      --gutter: clamp(20px, 4vw, 64px);
-      --bar: 60px;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: var(--bar); scrollbar-color: var(--ground-3) var(--ground); }
+    html, body { margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
     body {
-      margin: 0;
-      background: var(--ground);
+      background: var(--paper);
       color: var(--ink);
       font-family: var(--sans);
-      font-size: 1.0625rem;
+      font-size: 16px;
       line-height: 1.55;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
-      overflow-x: clip;
-    }
-    img { display: block; max-width: 100%; }
-    h1, h2, h3, p, ol, ul, dl, dd, figure { margin: 0; padding: 0; }
-    ol, ul { list-style: none; }
-    a { color: inherit; text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
-    button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
-    ::selection { background: var(--mark); color: var(--ground); }
-    :focus-visible { outline: 2px solid var(--mark); outline-offset: 3px; border-radius: 3px; }
-    .papers :focus-visible { outline-color: var(--mark-on-paper); }
-
-    .skip { position: absolute; left: var(--gutter); top: -60px; z-index: 30; background: var(--mark); color: var(--ground); padding: 8px 14px; border-radius: 4px; }
-    .skip:focus { top: 10px; }
-
-    h1, h2, .title { font-family: var(--sans); font-stretch: 112%; font-weight: 500; letter-spacing: -0.03em; line-height: 1; text-wrap: balance; }
-    h2 { font-size: clamp(2.5rem, 6vw, 5rem); }
-    .lead { font-family: var(--serif); font-size: clamp(1.3rem, 2vw, 1.6rem); line-height: 1.35; max-width: 34em; color: var(--ink); text-wrap: pretty; }
-    .fine { font-size: 0.875rem; line-height: 1.5; color: var(--ink-3); max-width: 62ch; text-wrap: pretty; }
-    .num { font-variant-numeric: tabular-nums; }
-
-    /* Controls */
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      min-height: 44px; padding: 10px 18px;
-      border-radius: 999px;
-      background: var(--ink); color: var(--ground);
-      font-weight: 550; font-size: 0.9375rem; text-decoration: none; white-space: nowrap;
-      transition: transform 160ms var(--ease-out), background-color 160ms ease, color 160ms ease;
-    }
-    .btn:active { transform: scale(0.97); }
-    .btn.quiet { background: var(--ground-3); color: var(--ink); }
-    .btn svg { width: 16px; height: 16px; flex: none; }
-    @media (hover: hover) and (pointer: fine) {
-      .btn:hover { background: var(--mark); color: var(--ground); }
-      .btn.quiet:hover { background: var(--ink); color: var(--ground); }
-    }
-    .papers .btn.quiet { background: var(--paper-2); color: var(--on-paper); }
-    @media (hover: hover) and (pointer: fine) {
-      .papers .btn.quiet:hover { background: var(--on-paper); color: var(--paper); }
+      overflow-x: hidden;
     }
 
-    /* Bar */
-    .bar {
-      position: sticky; top: 0; z-index: 20;
-      height: var(--bar);
-      display: flex; align-items: center; justify-content: space-between; gap: 24px;
-      padding: 0 var(--gutter);
-      background: var(--ground);
-    }
-    .bar .me { font-stretch: 112%; font-weight: 600; letter-spacing: -0.01em; text-decoration: none; white-space: nowrap; }
-    .bar nav { position: relative; display: flex; gap: 4px; }
-    .bar nav a { display: flex; align-items: center; min-height: 44px; padding: 0 12px; text-decoration: none; color: var(--ink-2); transition: color 160ms ease; }
-    .bar nav a[aria-current="true"] { color: var(--ink); }
-    @media (hover: hover) and (pointer: fine) { .bar nav a:hover { color: var(--ink); } }
-    .bar .tick {
-      position: absolute; left: 0; bottom: 6px; width: 1px; height: 2px; background: var(--mark);
-      transform-origin: left; opacity: 0;
-      transition: transform 260ms var(--ease-out), opacity 160ms ease;
-    }
-    @media (max-width: 560px) {
-      .bar .me { display: none; }
-      .bar nav { width: 100%; justify-content: space-between; margin-inline: -12px; width: calc(100% + 24px); }
+    a { color: inherit; text-decoration: none; }
+    ::selection { background: var(--accent); color: var(--paper); }
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 2px;
     }
 
-    /* Hero */
-    .hero {
-      position: relative;
-      min-height: calc(100svh - var(--bar));
-      padding: clamp(24px, 6vh, 72px) var(--gutter) 0;
-      display: flex; flex-direction: column;
-      overflow: hidden;
-      isolation: isolate;
-      touch-action: pan-y;
+    /* ── LAYOUT ── */
+    .shell {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 56px 72px 80px;
+      display: grid;
+      grid-template-columns: minmax(260px, 28%) 1fr;
+      gap: 64px;
+      min-height: 100vh;
     }
-    #field { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -2; }
-    .portrait {
-      position: absolute; z-index: -1; bottom: 0; right: clamp(-40px, -1vw, 0px);
-      height: min(92%, 980px); width: auto; max-width: none;
-      aspect-ratio: 2 / 3;
-      pointer-events: none; user-select: none;
-      -webkit-mask-image: linear-gradient(to top, transparent 0, #000 9%);
-      mask-image: linear-gradient(to top, transparent 0, #000 9%);
+    @media (max-width: 1100px) {
+      .shell { grid-template-columns: 1fr; padding: 40px 32px 64px; gap: 48px; }
     }
-    h1 { font-size: clamp(3.75rem, 8.2vw, 6rem); letter-spacing: -0.04em; line-height: 0.94; font-stretch: 118%; }
-    .hero-text { max-width: min(37vw, 560px); padding-bottom: 104px; }
-    .statement { font-family: var(--serif); font-size: clamp(1.45rem, 2.3vw, 2rem); line-height: 1.22; margin-top: 28px; text-wrap: pretty; }
-    .statement em { font-style: italic; color: var(--mark); }
-    .now { margin-top: 20px; color: var(--ink-2); max-width: 40ch; text-wrap: pretty; }
-    .now strong { color: var(--ink); font-weight: 550; }
-    .hero-cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
-    .field-note { position: absolute; left: var(--gutter); bottom: 24px; max-width: 37ch; font-size: 0.875rem; line-height: 1.45; color: var(--ink-3); }
-    @media (max-width: 860px) {
-      .hero { min-height: 0; }
-      .hero-text { max-width: 36em; padding-bottom: 0; }
-      .stage { height: 118vw; max-height: 620px; margin-top: 12px; }
-      .portrait { height: min(116vw, 610px); right: -6vw; }
-      .field-note { position: static; order: 2; margin-top: 22px; max-width: 44ch; }
-      .hero-text { order: 1; }
-      .stage { order: 3; }
+
+    /* ── LEFT RAIL ── */
+    .rail {
+      position: sticky;
+      top: 56px;
+      align-self: start;
+      display: flex;
+      flex-direction: column;
+    }
+    .rail .contact { margin-top: 40px; }
+    @media (max-width: 1100px) { .rail { position: static; } }
+
+    .name-mark {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: .55em;
+      font-family: var(--serif);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 0.92;
+      letter-spacing: -0.02em;
+    }
+    .name-mark .ln { font-size: clamp(34px, 3.4vw, 52px); }
+
+    .name-meta { margin-top: 18px; }
+
+    .name-tag {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-family: var(--sans);
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--ink-2);
+    }
+    .nt-row {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 10px;
+      align-items: baseline;
+    }
+    .nt-kick {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 500;
+      padding-top: 2px;
+    }
+    .nt-row em {
+      font-style: italic;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* Nav */
+    .nav {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 32px 0 0 8px;
+      font-family: var(--serif);
+    }
+    .nav a {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      font-size: 22px;
+      color: var(--ink-3);
+      font-weight: 500;
+      transition: color .25s ease, transform .25s ease;
+      width: max-content;
+    }
+    .nav a .num {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 14px;
+      color: var(--ink-4);
+      font-weight: 400;
+      min-width: 1.4em;
+    }
+    .nav a:hover { color: var(--ink); transform: translateX(4px); }
+    .nav a.active { color: var(--accent); font-weight: 700; }
+    .nav a.active .num { color: var(--accent); }
+
+    /* Contact */
+    .contact {
+      border-top: 1px solid var(--rule);
+      padding-top: 22px;
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .contact .label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+      margin-bottom: 4px;
+    }
+    .c-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--ink-2);
+      transition: color .2s ease;
+    }
+    .c-row:hover { color: var(--accent); }
+    .c-row svg { width: 16px; height: 16px; flex: none; opacity: .8; }
+    .c-row .lk-arrow {
+      margin-left: auto;
+      opacity: 0;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+    .c-row:hover .lk-arrow { opacity: 1; transform: translateX(2px); }
+
+    /* ── RIGHT CONTENT ── */
+    .content { min-width: 0; padding-top: 8px; }
+
+    .hero-statement {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: clamp(28px, 3.3vw, 44px);
+      line-height: 1.18;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin: 0 0 16px;
+      max-width: 680px;
+    }
+    .hero-statement em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero-sub {
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--ink-2);
+      max-width: 680px;
+      margin: 0 0 56px;
     }
 
     /* Sections */
-    section.block { padding: clamp(72px, 11vw, 150px) var(--gutter); }
-    section.block > h2 { margin-bottom: 24px; }
-
-    /* Instrument: over-knowledge */
-    .instrument {
-      margin-top: clamp(32px, 5vw, 64px);
-      margin-inline: calc(var(--gutter) * -0.5);
-      padding: clamp(20px, 3vw, 44px);
-      background: var(--ground-2);
-      border-radius: 18px;
-      display: grid; gap: clamp(28px, 4vw, 56px);
-      grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
-      align-items: start;
+    section { scroll-margin-top: 40px; padding-top: 64px; }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 36px;
     }
-    @media (max-width: 960px) { .instrument { grid-template-columns: 1fr; } }
-    .readout { font-size: clamp(1.75rem, 3.1vw, 2.75rem); font-stretch: 108%; font-weight: 500; line-height: 1.08; letter-spacing: -0.025em; min-height: 3.3em; text-wrap: pretty; }
-    .readout .a { color: var(--ink); }
-    .readout .b { color: var(--mark); }
-    .sheets { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(16px, 2.4vw, 32px); margin-top: 24px; }
-    .sheet h3 { font-size: 0.9375rem; font-weight: 550; margin: 0 0 10px; }
-    .sheet h3 span { color: var(--ink-2); font-weight: 400; display: block; font-size: 0.875rem; }
-    .marks { display: grid; grid-template-columns: repeat(10, 1fr); gap: clamp(3px, .5vw, 6px); }
-    .mark-b {
-      aspect-ratio: 5 / 8; border-radius: 50%;
-      background: var(--ground-3);
-      transition: background-color 110ms ease, transform 110ms var(--ease-out);
-      transform: scale(0.82);
+    .section-head .kanji-num {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--accent);
+      line-height: 1;
     }
-    .mark-b.on { background: var(--ink); transform: none; }
-    .mark-b.over { background: var(--mark); transform: none; }
-
-    .chart-wrap { min-width: 0; }
-    .chart { display: block; width: 100%; height: auto; touch-action: pan-y; cursor: ew-resize; user-select: none; overflow: visible; }
-    .chart text { font-family: var(--sans); font-size: 14px; fill: var(--ink-2); font-variant-numeric: tabular-nums; }
-    .chart .grid { stroke: var(--ground-3); stroke-width: 1; }
-    .chart .real { fill: none; stroke: var(--ink); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-    .chart .llm  { fill: none; stroke: var(--mark); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-    .chart .gap  { fill: var(--mark); opacity: 0.16; }
-    .chart .cursor { stroke: var(--ink-2); stroke-width: 1; }
-    .chart .lab-real { fill: var(--ink); font-weight: 550; }
-    .chart .lab-llm { fill: var(--mark); font-weight: 550; }
-
-    .slider { margin-top: 18px; }
-    .slider label { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; font-weight: 550; font-size: 0.9375rem; }
-    .slider output { font-weight: 400; color: var(--ink-2); font-variant-numeric: tabular-nums; white-space: nowrap; }
-    input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 44px; margin: 2px 0 0; background: transparent; cursor: ew-resize; }
-    input[type=range]::-webkit-slider-runnable-track { height: 6px; border-radius: 3px; background: var(--ground-3); }
-    input[type=range]::-moz-range-track { height: 6px; border-radius: 3px; background: var(--ground-3); }
-    input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 32px; margin-top: -13px; border-radius: 50%; background: var(--mark); border: 0; transition: transform 140ms var(--ease-out); }
-    input[type=range]::-moz-range-thumb { width: 22px; height: 32px; border-radius: 50%; background: var(--mark); border: 0; }
-    input[type=range]:active::-webkit-slider-thumb { transform: scale(1.1); }
-    .ends { display: flex; justify-content: space-between; gap: 12px; font-size: 0.875rem; color: var(--ink-2); margin-top: -2px; }
-
-    /* Prompt conditions */
-    .conditions { margin-top: clamp(56px, 8vw, 110px); display: grid; gap: clamp(24px, 4vw, 64px); grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); align-items: start; }
-    @media (max-width: 960px) { .conditions { grid-template-columns: 1fr; } }
-    .conditions h3 { font-size: clamp(1.75rem, 3.1vw, 2.75rem); font-stretch: 108%; font-weight: 500; letter-spacing: -0.025em; line-height: 1.08; margin: 0 0 14px; }
-    .conditions .copy { font-family: var(--serif); font-size: 1.25rem; line-height: 1.4; color: var(--ink); max-width: 30em; }
-    .seg { position: relative; display: inline-grid; grid-auto-flow: column; grid-auto-columns: 1fr; padding: 4px; background: var(--ground-2); border-radius: 999px; margin-bottom: 18px; }
-    .seg button { position: relative; z-index: 1; min-height: 40px; padding: 0 22px; border-radius: 999px; font-weight: 550; font-size: 0.9375rem; color: var(--ink-2); transition: color 160ms ease, transform 160ms var(--ease-out); }
-    .seg button:active { transform: scale(0.97); }
-    .seg button[aria-pressed="true"] { color: var(--ground); }
-    .seg .thumb { position: absolute; top: 4px; bottom: 4px; left: 4px; border-radius: 999px; background: var(--ink); transition: transform 240ms var(--ease-out); }
-    .bars { display: grid; gap: 14px; margin-top: 4px; }
-    .bar-row { display: grid; grid-template-columns: 1fr auto; row-gap: 6px; font-size: 0.9375rem; font-weight: 550; }
-    .bar-row b { font-weight: 550; font-variant-numeric: tabular-nums; }
-    .track { grid-column: 1 / -1; height: 18px; border-radius: 9px; background: var(--ground-2); overflow: hidden; }
-    .fill { height: 100%; width: 100%; border-radius: 9px; background: var(--ink); transform-origin: left; transition: transform 420ms var(--ease-out); }
-    .fill.m { background: var(--mark); }
-    .prompt {
-      margin-top: 20px; padding: 18px 20px;
-      background: var(--ground-2); border-radius: 12px;
-      font-family: var(--mono); font-size: 0.8125rem; line-height: 1.6; color: var(--ink-2);
-      white-space: pre-wrap; overflow-wrap: anywhere;
-      transition: filter 180ms ease, opacity 180ms ease;
+    .section-head h2 {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: clamp(36px, 4.2vw, 56px);
+      margin: 0;
+      letter-spacing: -0.02em;
+      line-height: 1;
     }
-    .prompt.swap { filter: blur(3px); opacity: 0.4; }
-
-    /* Attempt game */
-    .game { margin-top: clamp(32px, 5vw, 64px); margin-inline: calc(var(--gutter) * -0.5); padding: clamp(20px, 3vw, 44px); background: var(--ground-2); border-radius: 18px; display: grid; gap: clamp(24px, 4vw, 56px); grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); align-items: start; }
-    @media (max-width: 960px) { .game { grid-template-columns: 1fr; } }
-    .game h3 { margin: 0 0 12px; font-size: 0.9375rem; font-weight: 550; }
-    .code, .prompt, .cite pre, code { font-variant-ligatures: none; }
-    .code { margin: 0; padding: 14px 0; background: var(--ground); border-radius: 12px; font-family: var(--mono); font-size: clamp(0.76rem, 1.1vw, 0.9rem); line-height: 1.7; overflow-x: auto; }
-    .code .ln { display: block; padding: 0 18px; min-height: 1.7em; white-space: pre; transition: background-color 220ms ease; }
-    .code .ln.changed { background: rgba(255, 106, 77, 0.2); color: #ffd9cf; }
-    .matrix { display: grid; gap: 6px; }
-    .row { display: grid; grid-template-columns: 5.2em 1fr 3.1em; align-items: center; gap: 8px; font-size: 0.875rem; color: var(--ink-2); font-variant-numeric: tabular-nums; }
-    .row .score { text-align: right; color: var(--ink); font-weight: 550; }
-    .tests { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(3px, .5vw, 5px); }
-    .t { aspect-ratio: 5 / 8; border-radius: 50%; background: var(--ground-3); transform: scale(0.82); transition: background-color 140ms ease, transform 200ms var(--ease-out); transition-delay: calc(var(--i) * 26ms); }
-    .t.pass { background: var(--ink); transform: none; }
-    .ask { margin-top: 22px; }
-    .ask p { font-weight: 550; margin-bottom: 10px; }
-    .choices { display: flex; flex-wrap: wrap; gap: 8px; }
-    .choices .btn svg { width: 15px; height: 15px; }
-    .verdict { min-height: 3em; margin-top: 14px; color: var(--ink-2); text-wrap: pretty; }
-    .verdict strong { color: var(--ink); font-weight: 550; }
-    .verdict .hit { color: var(--mark); font-weight: 550; }
-    .data-line { margin-top: clamp(40px, 6vw, 72px); font-family: var(--serif); font-size: clamp(1.35rem, 2.5vw, 2.1rem); line-height: 1.28; max-width: 32em; text-wrap: pretty; }
-    .data-line b { font-family: var(--sans); font-stretch: 108%; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
-    .data-line + p { margin-top: 18px; color: var(--ink-2); max-width: 62ch; }
-
-    /* Papers */
-    .papers { background: var(--paper); color: var(--on-paper); }
-    .papers ::selection { background: var(--on-paper); color: var(--paper); }
-    .paper { display: grid; grid-template-columns: minmax(120px, 2fr) minmax(0, 8fr); gap: 8px clamp(16px, 4vw, 56px); padding: clamp(28px, 4vw, 44px) 0; }
-    .paper + .paper { border-top: 2px solid var(--paper-2); }
-    @media (max-width: 760px) { .paper { grid-template-columns: 1fr; } }
-    .venue { font-weight: 550; font-size: 0.9375rem; line-height: 1.3; }
-    .venue.live { color: var(--mark-on-paper); }
-    .venue span { display: block; font-weight: 400; color: var(--on-paper-2); }
-    .paper .title { font-family: var(--serif); font-stretch: normal; font-size: clamp(1.5rem, 2.8vw, 2.35rem); line-height: 1.14; letter-spacing: -0.012em; font-weight: 400; margin: 0; }
-    .paper .title a { text-decoration: none; background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size 280ms var(--ease-out); }
-    @media (hover: hover) and (pointer: fine) { .paper .title a:hover { background-size: 100% 1px; } }
-    .authors { margin-top: 10px; color: var(--on-paper-2); }
-    .authors b { color: var(--on-paper); font-weight: 600; }
-    .finding { margin-top: 10px; max-width: 62ch; font-family: var(--serif); font-size: 1.25rem; line-height: 1.38; text-wrap: pretty; }
-    .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-    .cite { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 280ms var(--ease-out); }
-    .cite.open { grid-template-rows: 1fr; }
-    .cite > div { overflow: hidden; min-height: 0; visibility: hidden; transition: visibility 280ms; }
-    .cite.open > div { visibility: visible; }
-    .cite pre { margin: 14px 0 0; padding: 16px 18px; background: var(--paper-2); border-radius: 10px; font-family: var(--mono); font-size: 0.8125rem; line-height: 1.55; white-space: pre-wrap; overflow-wrap: anywhere; color: var(--on-paper); }
-
-    /* Projects */
-    .project { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(24px, 5vw, 80px); align-items: center; margin-top: clamp(40px, 6vw, 80px); }
-    .project:nth-of-type(even) .shot { order: -1; }
-    .project:nth-of-type(even) { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); }
-    @media (max-width: 860px) {
-      .project, .project:nth-of-type(even) { grid-template-columns: 1fr; }
-      .project:nth-of-type(even) .shot { order: 0; }
+    .section-head .ord {
+      margin-left: auto;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink-4);
     }
-    .project .title { font-size: clamp(2rem, 4vw, 3.25rem); margin: 0; }
-    .project .where { margin-top: 10px; color: var(--ink-2); }
-    .project .tagline { font-family: var(--serif); font-size: clamp(1.25rem, 1.9vw, 1.5rem); line-height: 1.3; margin-top: 14px; }
-    .project p.body { margin-top: 14px; color: var(--ink-2); max-width: 58ch; text-wrap: pretty; }
-    .project p.body strong { color: var(--ink); font-weight: 550; }
-    .shot { display: block; overflow: hidden; border-radius: 16px; background: var(--ground-2); }
-    .shot img { width: 100%; height: auto; aspect-ratio: 540 / 750; max-height: 640px; object-fit: cover; object-position: top; transition: transform 500ms var(--ease-out); }
-    .shot:active img { transform: scale(0.99); }
-    @media (hover: hover) and (pointer: fine) { .shot:hover img { transform: scale(1.025); } }
 
     /* About */
-    .about { background: var(--ground-2); }
-    .about-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: clamp(32px, 6vw, 96px); align-items: start; margin-top: 12px; }
-    @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; } }
-    .about-copy p { font-family: var(--serif); font-size: clamp(1.25rem, 1.8vw, 1.5rem); line-height: 1.38; max-width: 33em; text-wrap: pretty; }
-    .about-copy p + p { margin-top: 1em; }
-    .about-copy strong { font-weight: 500; }
-    .facts { display: grid; gap: 20px; }
-    .facts dt { font-weight: 550; }
-    .facts dd { color: var(--ink-2); text-wrap: pretty; }
-    .reach { margin-top: clamp(40px, 6vw, 72px); display: flex; flex-wrap: wrap; gap: 10px; }
-    .reach .btn svg { width: 17px; height: 17px; }
-    .about .btn.quiet { background: var(--ground-3); }
-    .copy-label { display: inline-grid; }
-    .copy-label > span { grid-area: 1 / 1; transition: opacity 180ms ease, filter 180ms ease, transform 180ms var(--ease-out); }
-    .copy-label > .done { opacity: 0; filter: blur(3px); transform: translateY(4px); text-align: center; }
-    .copied .copy-label > .idle { opacity: 0; filter: blur(3px); transform: translateY(-4px); }
-    .copied .copy-label > .done { opacity: 1; filter: none; transform: none; }
-    footer { padding: 28px var(--gutter) 36px; background: var(--ground-2); color: var(--ink-3); font-size: 0.875rem; }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 36px;
+      align-items: start;
+    }
+    @media (max-width: 720px) { .about-grid { grid-template-columns: 1fr; } }
 
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition-duration: 1ms !important; transition-delay: 0ms !important; }
+    .portrait {
+      width: 220px;
+      height: calc(220px * 1.28);
+      position: relative;
+      background: var(--paper-2);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .portrait::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid var(--rule-strong);
+      pointer-events: none;
+    }
+    .portrait img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    @media (max-width: 720px) {
+      .portrait { width: 100%; height: auto; aspect-ratio: 1 / 1.28; }
+    }
+
+    .about-body p {
+      margin: 0 0 16px;
+      color: var(--ink-2);
+      font-size: 16.5px;
+      line-height: 1.7;
+    }
+    .about-body p a {
+      color: var(--ink);
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 1px;
+    }
+    .about-body p a:hover { color: var(--accent); }
+    .about-body strong { color: var(--ink); font-weight: 600; }
+
+    .meta-list {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      row-gap: 10px;
+      column-gap: 16px;
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px dashed var(--rule);
+      font-size: 14px;
+    }
+    .meta-list dt {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+      align-self: baseline;
+    }
+    .meta-list dd { margin: 0; color: var(--ink-2); }
+    .meta-list dd b { color: var(--ink); font-weight: 600; }
+
+    /* Research */
+    .papers { display: flex; flex-direction: column; }
+    .paper {
+      display: grid;
+      grid-template-columns: 64px 1fr auto;
+      gap: 24px;
+      padding: 28px 0;
+      border-top: 1px solid var(--rule);
+      align-items: start;
+    }
+    .paper:last-child { border-bottom: 1px solid var(--rule); }
+    @media (max-width: 720px) {
+      .paper { grid-template-columns: 1fr; }
+    }
+    .paper .year {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: .08em;
+      color: var(--ink-3);
+      padding-top: 4px;
+    }
+    .paper-body { min-width: 0; }
+    .paper-tag {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .paper-title {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 1.28;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin: 0 0 8px;
+    }
+    .paper-authors {
+      font-size: 14.5px;
+      color: var(--ink-3);
+      margin: 0;
+    }
+    .paper-authors b { color: var(--ink); font-weight: 600; }
+    .paper-actions { display: flex; gap: 8px; padding-top: 4px; }
+
+    /* Pills */
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border: 1px solid var(--rule-strong);
+      border-radius: 999px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--ink-2);
+      background: transparent;
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
+      cursor: pointer;
+    }
+    .pill:hover {
+      background: var(--ink);
+      color: var(--paper);
+      border-color: var(--ink);
+    }
+    .pill svg { width: 12px; height: 12px; }
+
+    /* Projects */
+    .project {
+      border: 1px solid var(--rule-strong);
+      padding: 32px;
+      position: relative;
+      background: rgba(255,255,255,.35);
+      transition: background .25s ease;
+    }
+    .project:hover { background: rgba(255,255,255,.6); }
+    .project .corner {
+      position: absolute;
+      top: -1px;
+      right: -1px;
+      background: var(--ink);
+      color: var(--paper);
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .18em;
+      padding: 6px 12px;
+      text-transform: uppercase;
+    }
+    .project h3 {
+      font-family: var(--serif);
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 14px 0 6px;
+      line-height: 1.05;
+    }
+    .project h3 .accent-c { color: var(--accent); }
+    .project .tagline {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 18px;
+      color: var(--ink-3);
+      margin: 0 0 18px;
+    }
+    .project-inner {
+      display: flex;
+      align-items: flex-start;
+      gap: 32px;
+    }
+    .project-inner .project-body { flex: 1; min-width: 0; }
+    .project-logo {
+      flex-shrink: 0;
+      width: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 4px;
+    }
+    .project-logo img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    @media (max-width: 600px) {
+      .project-inner { flex-direction: column; }
+      .project-logo { width: 80px; }
+    }
+    .project-body p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--ink-2);
+      margin: 0 0 14px;
+    }
+    .project-body strong { color: var(--ink); font-weight: 600; }
+    .project-links {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 96px;
+      padding-top: 28px;
+      border-top: 1px solid var(--rule);
+      color: var(--ink-4);
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
     }
   </style>
 </head>
 <body>
-<a class="skip" href="#research">Skip to the research</a>
 
-<header class="bar">
-  <a class="me" href="#top">Kaz Fukuhara</a>
-  <nav aria-label="Sections">
-    <a href="#research" data-nav="research">Research</a>
-    <a href="#papers" data-nav="papers">Papers</a>
-    <a href="#projects" data-nav="projects">Projects</a>
-    <a href="#about" data-nav="about">About</a>
-    <span class="tick" aria-hidden="true"></span>
-  </nav>
-</header>
+<div class="shell">
 
-<main>
-  <section class="hero" id="top">
-    <canvas id="field" aria-hidden="true"></canvas>
-    <div class="hero-text">
-      <h1>Kaz<br>Fukuhara</h1>
-      <p class="statement">I build foundational and applied methods for <em>AI&nbsp;measurement</em> and the <em>learning&nbsp;sciences</em>.</p>
-      <p class="now"><strong>MPhil student at the UCL Knowledge Lab</strong> with Prof. Mutlu Cukurova, in London. Previously M.S. at Stanford GSE with Ben Domingue.</p>
-      <div class="hero-cta">
-        <a class="btn" href="#research">Try the experiments</a>
-        <a class="btn quiet" href="#papers">Read the papers</a>
+  <!-- ── LEFT RAIL ── -->
+  <aside class="rail">
+    <div>
+      <div class="name-mark">
+        <span class="ln">Kaz</span>
+        <span class="ln">Fukuhara</span>
       </div>
+
+      <div class="name-meta">
+        <div class="name-tag">
+          <div class="nt-row">
+            <span class="nt-kick">Now</span>
+            <span>UCL Knowledge Lab · <em>MPhil</em> with Prof. Mutlu Cukurova</span>
+          </div>
+          <div class="nt-row">
+            <span class="nt-kick">Previously</span>
+            <span>Stanford GSE · <em>M.S. Education Data Science</em></span>
+          </div>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Sections">
+        <a href="#about" data-nav="about">
+          <span class="num">一</span>
+          <span>About</span>
+        </a>
+        <a href="#research" data-nav="research">
+          <span class="num">二</span>
+          <span>Research</span>
+        </a>
+        <a href="#projects" data-nav="projects">
+          <span class="num">三</span>
+          <span>Projects</span>
+        </a>
+      </nav>
     </div>
-    <div class="stage" aria-hidden="true"></div>
-    <img class="portrait" src="assets/kaz-portrait.webp" width="1000" height="1500" alt="Portrait of Kaz Fukuhara in a dark jacket" fetchpriority="high" />
-    <p class="field-note">The marks behind me form an item response curve. Move across them to shift the item's difficulty.</p>
-  </section>
 
-  <section class="block" id="research">
-    <h2>LLMs struggle to&nbsp;struggle</h2>
-    <p class="lead">Ask a language model to answer like a struggling student and it still answers too well. That is the over-knowledge problem. With Ben Domingue, I measured it against real learners. Drag to see the gap.</p>
+    <div class="contact">
+      <div class="label">Contact / Elsewhere</div>
 
-    <div class="instrument" id="instrument">
-      <div>
-        <p class="readout" id="readout" aria-live="off"></p>
-        <div class="sheets">
-          <div class="sheet">
-            <h3>Real students <span>out of 100, correct</span></h3>
-            <div class="marks" id="sheetReal" aria-hidden="true"></div>
-          </div>
-          <div class="sheet">
-            <h3>LLM playing them <span>extra correct in red</span></h3>
-            <div class="marks" id="sheetLLM" aria-hidden="true"></div>
-          </div>
-        </div>
-      </div>
-      <div class="chart-wrap">
-        <svg class="chart" id="chart" viewBox="0 0 640 400" role="img" aria-label="Line chart of correctness against student ability minus item difficulty. The LLM simulation stays well above real students at low ability and falls slightly below them at high ability."></svg>
-        <div class="slider">
-          <label for="theta">Student ability minus item difficulty <output id="thetaOut" for="theta"></output></label>
-          <input type="range" id="theta" min="-2.01" max="2.48" step="0.01" value="-2.01" />
-          <div class="ends"><span>Question far too hard</span><span>Question easy</span></div>
-        </div>
-      </div>
-    </div>
-    <p class="fine" style="margin-top:16px">Real data from Table A5 of the paper: 32,218 responses from 250 Japanese middle and high school students on TOEFL reading items, with gpt-4.1-nano given IRT parameters. The readout interpolates between the ten published bins.</p>
-
-    <div class="conditions" id="conditions">
-      <div>
-        <h3>The prompt changes the student</h3>
-        <p class="copy" id="condCopy"></p>
-      </div>
-      <div>
-        <div class="seg" role="group" aria-label="Prompting condition" id="seg">
-          <span class="thumb" aria-hidden="true"></span>
-          <button type="button" data-c="persona" aria-pressed="true">Persona</button>
-          <button type="button" data-c="irt" aria-pressed="false">IRT</button>
-          <button type="button" data-c="cdm" aria-pressed="false">CDM</button>
-        </div>
-        <div class="bars" aria-live="polite">
-          <div class="bar-row"><span>Simulated correctness</span><b id="simVal"></b><div class="track"><div class="fill m" id="simFill"></div></div></div>
-          <div class="bar-row"><span>Real students</span><b>54.0%</b><div class="track"><div class="fill" style="transform:scaleX(.54)"></div></div></div>
-        </div>
-        <pre class="prompt" id="promptBox" tabindex="0" aria-label="Excerpt of the prompt used in this condition"></pre>
-      </div>
-    </div>
-  </section>
-
-  <section class="block" id="codeinsight" style="padding-top:0">
-    <h2>Call the next attempt</h2>
-    <p class="lead">Students submit code, read the test results and try again. Predicting what happens on the next try is the benchmark in our EMNLP Findings paper. You go first.</p>
-
-    <div class="game" id="game">
-      <div>
-        <h3 id="attemptLabel"></h3>
-        <pre class="code" id="code" tabindex="0" aria-label="C++ source code for the current attempt"></pre>
-      </div>
-      <div>
-        <h3>Test results, 12 cases</h3>
-        <div class="matrix" id="matrix"></div>
-        <div class="ask" id="ask" aria-live="polite"></div>
-      </div>
-    </div>
-    <p class="fine" style="margin-top:16px">This trajectory was written for this page and its tests really run in your browser. It is an illustration, not student data.</p>
-
-    <p class="data-line">CodeInsight holds <b>3,074,795</b> submissions from <b>3,286</b> undergraduates, across <b>394</b> problems and <b>3,888</b> test cases.</p>
-    <p>A recurrent state space model predicted best on three of four courses. The LLM predictor fell below the trained models, and models with stronger coding ability predicted worse. It behaved like a solver, not like the student.</p>
-  </section>
-
-  <section class="block papers" id="papers">
-    <h2>Papers</h2>
-    <ol>
-      <li class="paper">
-        <p class="venue live">AIME-Con 2026<span>Full paper</span></p>
-        <div>
-          <h3 class="title"><a href="https://aclanthology.org/2026.aimecon-main.47/" target="_blank" rel="noopener">Can LLMs Interpret Psychometric Parameters? Quantifying &ldquo;Over-Knowledge&rdquo; in LLM Student Simulation</a></h3>
-          <p class="authors"><b>Fukuhara</b>, Domingue</p>
-          <p class="finding">LLMs follow IRT parameters, yet struggle to simulate real abilities. Persona prompts reached 96.3% correct against 54.0% for real students.</p>
-          <div class="actions">
-            <a class="btn quiet" href="https://aclanthology.org/2026.aimecon-main.47/" target="_blank" rel="noopener">Paper</a>
-            <a class="btn quiet" href="https://github.com/Kazf28/Psychometrics-LLM-Simulation" target="_blank" rel="noopener">Code</a>
-            <button class="btn quiet" type="button" data-cite="c1" aria-expanded="false" aria-controls="c1">Cite</button>
-          </div>
-          <div class="cite" id="c1"><div><pre>@inproceedings{fukuhara-domingue-2026-llms,
-  title = {Can {LLM}s Interpret Psychometric Parameters? Quantifying ``Over-Knowledge'' in {LLM} Student Simulation},
-  author = {Fukuhara, Kazunori and Domingue, Benjamin},
-  booktitle = {Proceedings of the Artificial Intelligence in Measurement and Education Conference ({AIME}-Con): Full Papers},
-  year = {2026},
-  pages = {421--432},
-  publisher = {National Council on Measurement in Education (NCME)},
-  url = {https://aclanthology.org/2026.aimecon-main.47/}
-}</pre><div class="actions"><button class="btn quiet" type="button" data-copy-bib><span class="copy-label"><span class="idle">Copy BibTeX</span><span class="done">Copied</span></span></button></div></div></div>
-        </div>
-      </li>
-      <li class="paper">
-        <p class="venue live">Findings of EMNLP 2026</p>
-        <div>
-          <h3 class="title"><a href="https://arxiv.org/abs/2609.00940" target="_blank" rel="noopener">A Dataset for Modeling Iterative Problem-Solving</a></h3>
-          <p class="authors">Patel, Truong, Nguyen, <b>Fukuhara</b>, Domingue, Koyejo, Haber</p>
-          <p class="finding">Over 3 million code submissions and a shared benchmark across parametric, sequential and generative models of next-attempt performance.</p>
-          <div class="actions">
-            <a class="btn quiet" href="https://arxiv.org/abs/2609.00940" target="_blank" rel="noopener">Paper</a>
-            <a class="btn quiet" href="https://huggingface.co/CodeInsightTeam" target="_blank" rel="noopener">Data</a>
-            <button class="btn quiet" type="button" data-cite="c2" aria-expanded="false" aria-controls="c2">Cite</button>
-          </div>
-          <div class="cite" id="c2"><div><pre>@misc{patel2026dataset,
-  title = {A Dataset for Modeling Iterative Problem-Solving},
-  author = {Patel, Fagun and Truong, Sang T. and Nguyen, Duc Q. and Fukuhara, Kazunori and Domingue, Benjamin W. and Koyejo, Sanmi and Haber, Nick},
-  year = {2026},
-  eprint = {2609.00940},
-  archivePrefix = {arXiv},
-  primaryClass = {cs.CL},
-  note = {Findings of EMNLP 2026}
-}</pre><div class="actions"><button class="btn quiet" type="button" data-copy-bib><span class="copy-label"><span class="idle">Copy BibTeX</span><span class="done">Copied</span></span></button></div></div></div>
-        </div>
-      </li>
-      <li class="paper">
-        <p class="venue">Working paper<span>2025</span></p>
-        <div>
-          <h3 class="title"><a href="https://www.dropbox.com/scl/fi/ep6ghiih9ft2ogvhtzp8j/Evaluating-LLM-Adaptation-Techniques-to-Support-Belonging-Centered-Instruction-in-Elementary-Mathematics-Classrooms.pdf?rlkey=278oskoqxgsq9m69u8jgbbdw4&st=s62i9e3t&dl=0" target="_blank" rel="noopener">Evaluating LLM Adaptation Techniques to Support Belonging-Centered Instruction in Elementary Mathematics Classrooms</a></h3>
-          <p class="authors">Shi, <b>Fukuhara</b></p>
-          <div class="actions">
-            <a class="btn quiet" href="https://www.dropbox.com/scl/fi/ep6ghiih9ft2ogvhtzp8j/Evaluating-LLM-Adaptation-Techniques-to-Support-Belonging-Centered-Instruction-in-Elementary-Mathematics-Classrooms.pdf?rlkey=278oskoqxgsq9m69u8jgbbdw4&st=s62i9e3t&dl=0" target="_blank" rel="noopener">Paper</a>
-          </div>
-        </div>
-      </li>
-    </ol>
-  </section>
-
-  <section class="block" id="projects">
-    <h2>Projects</h2>
-
-    <article class="project">
-      <a class="shot" href="https://researchc-psi.vercel.app/" target="_blank" rel="noopener" aria-label="Open the live ResearchC platform">
-        <img src="assets/researchc.webp" width="1080" height="1500" loading="lazy" alt="ResearchC's mobile interface showing researcher profiles to discover" />
+      <a class="c-row" href="mailto:kazf28@stanford.edu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <rect x="3" y="5" width="18" height="14" rx="1"/>
+          <path d="M3 7l9 6 9-6"/>
+        </svg>
+        <span>kazf28@stanford.edu</span>
+        <span class="lk-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="16" height="16">
+            <path d="M5 12h14M13 5l7 7-7 7"/>
+          </svg>
+        </span>
       </a>
-      <div>
-        <h3 class="title">ResearchC</h3>
-        <p class="where">In build, Stanford. Platform and ecosystem.</p>
+
+      <a class="c-row" href="https://www.linkedin.com/in/kazunori-fukuhara-18717721a/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/>
+        </svg>
+        <span>LinkedIn</span>
+        <span class="lk-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="16" height="16">
+            <path d="M5 12h14M13 5l7 7-7 7"/>
+          </svg>
+        </span>
+      </a>
+
+      <a class="c-row" href="https://github.com/Kazf28" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-2.13c-3.2.69-3.87-1.36-3.87-1.36-.52-1.34-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.5 3.17-1.18 3.17-1.18.64 1.59.24 2.77.12 3.06.74.81 1.18 1.84 1.18 3.1 0 4.42-2.7 5.39-5.27 5.68.41.36.78 1.06.78 2.14v3.18c0 .31.21.66.79.55C20.22 21.38 23.5 17.07 23.5 12 23.5 5.65 18.35.5 12 .5z"/>
+        </svg>
+        <span>GitHub · @Kazf28</span>
+        <span class="lk-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="16" height="16">
+            <path d="M5 12h14M13 5l7 7-7 7"/>
+          </svg>
+        </span>
+      </a>
+
+      <a class="c-row" href="https://note.com/kaz_edtech28" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M4 4h12l4 4v12H4z"/>
+          <path d="M16 4v4h4"/>
+          <path d="M8 12h8M8 16h6"/>
+        </svg>
+        <span>note · 日本語ブログ</span>
+        <span class="lk-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="16" height="16">
+            <path d="M5 12h14M13 5l7 7-7 7"/>
+          </svg>
+        </span>
+      </a>
+
+      <a class="c-row" href="https://www.dropbox.com/scl/fi/ar18oiwcut6qkido5o8ep/Kaz-CV.pdf?rlkey=w2qkuv36l3tfzj0vxpp1ocd9u&st=x7zlwfok&dl=0" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M6 2h9l5 5v15H6z"/>
+          <path d="M15 2v5h5"/>
+        </svg>
+        <span>CV</span>
+        <span class="lk-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="16" height="16">
+            <path d="M5 12h14M13 5l7 7-7 7"/>
+          </svg>
+        </span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ── RIGHT CONTENT ── -->
+  <main class="content">
+
+    <!-- Hero -->
+    <p class="hero-statement">
+      I build foundational and applied methods for
+      <em>AI&nbsp;measurement</em> and the
+      <em>learning&nbsp;sciences</em>.
+    </p>
+    <p class="hero-sub">
+      I focus on the intersection of AI × Education × Psychometrics to achieve the simple, yet difficult, goal of education: helping students prepare for emerging opportunities in a world shaped by research, technology, and AI.
+    </p>
+
+    <!-- About -->
+    <section id="about">
+      <header class="section-head">
+        <span class="kanji-num" aria-hidden="true">一</span>
+        <h2>About</h2>
+        <span class="ord">01 / 03</span>
+      </header>
+
+      <div class="about-grid">
+        <div class="portrait">
+          <img
+            src="https://www.dropbox.com/scl/fi/afzqkkrr7j6fpsp9bb2dq/Kaz-Photo.jpg?rlkey=7t8eztznj5bysy70fdeh8lpog&st=4t7gybwf&raw=1"
+            alt="Kaz Fukuhara"
+          />
+        </div>
+
+        <div class="about-body">
+          <p>
+            I'm an <strong>MPhil student</strong> at the UCL Knowledge Lab, University College London,
+            working with
+            <a href="https://profiles.ucl.ac.uk/52201-mutlu-cukurova" target="_blank" rel="noopener">Professor Mutlu Cukurova</a>.
+            Previously, I completed my M.S. at the Stanford Graduate School of Education, working with
+            <a href="https://ed.stanford.edu/faculty/bdomingu" target="_blank" rel="noopener">Associate Professor Benjamin Domingue</a>.
+          </p>
+          <p>
+            I study the potential of <strong>large language models (LLMs) </strong> for student simulation combined with <strong>psychometrics</strong>, spanning applications in test design, teacher training, and personalized learning. I extend this work to measuring and developing teachers’ competency in AI, finding ways to help teachers navigate their experiences with rapidly advancing technologies.
+          </p>
+
+          <dl class="meta-list">
+            <dt>Now</dt>
+            <dd><b>UCL Knowledge Lab</b>, MPhil — advisor: M. Cukurova</dd>
+
+            <dt>Previously</dt>
+            <dd><b>Stanford GSE</b>, M.S. — advisor: B. Domingue</dd>
+
+            <dt>Interests</dt>
+            <dd>AI measurement · IRT / CDM · LLM-simulated learners · belonging-centered instruction</dd>
+
+            <dt>Based in</dt>
+            <dd>London, United Kingdom</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research -->
+    <section id="research">
+      <header class="section-head">
+        <span class="kanji-num" aria-hidden="true">二</span>
+        <h2>Research</h2>
+        <span class="ord">02 / 03</span>
+      </header>
+
+      <div class="papers">
+
+        <!-- <article class="paper">
+          <div class="year">2025</div>
+          <div class="paper-body">
+            <div class="paper-tag">Published</div>
+            <h3 class="paper-title">Evaluating Language Models as Human Simulators in Programming Education</h3>
+            <p class="paper-authors"><b>Fukuhara</b>, Truong, Nguyen, Domingue, Koyejo, Haber</p>
+          </div>
+          <div class="paper-actions">
+            <a class="pill" href="#" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/>
+              </svg>
+              Paper
+            </a>
+            <a class="pill" href="#" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/>
+              </svg>
+              Code
+            </a>
+          </div>
+        </article> -->
+
+        <article class="paper">
+          <div class="year">2026</div>
+          <div class="paper-body">
+            <div class="paper-tag">AIME-Con 2026</div>
+            <h3 class="paper-title">Can LLMs "Interpret" Psychometric Parameters? Evaluating "Over-Knowledge Problem" in LLM Student Simulation</h3>
+            <p class="paper-authors"><b>Fukuhara</b>, Domingue</p>
+          </div>
+          <div class="paper-actions">
+            <a class="pill" href="https://aclanthology.org/2026.aimecon-main.47/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/>
+              </svg>
+              Paper
+            </a>
+            <a class="pill" href="https://github.com/Kazf28/Psychometrics-LLM-Simulation" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/>
+              </svg>
+              Code
+            </a>
+          </div>
+        </article>
+
+        <article class="paper">
+          <div class="year">2026</div>
+          <div class="paper-body">
+            <div class="paper-tag">Findings of EMNLP 2026</div>
+            <h3 class="paper-title">A Dataset for Modeling Iterative Problem-Solving</h3>
+            <p class="paper-authors">Patel, Truong, Nguyen, <b>Fukuhara</b>, Haber, Koyejo, Domingue</p>
+          </div>
+          <div class="paper-actions">
+            <a class="pill" href="https://arxiv.org/abs/2609.00940" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/>
+              </svg>
+              Paper
+            </a>
+            <a class="pill" href="https://huggingface.co/CodeInsightTeam" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/>
+              </svg>
+              Data
+            </a>
+          </div>
+        </article>
+
+        <article class="paper">
+          <div class="year">2025</div>
+          <div class="paper-body">
+            <div class="paper-tag">Working Paper</div>
+            <h3 class="paper-title">Evaluating LLM Adaptation Techniques to Support Belonging-Centered Instruction in Elementary Mathematics Classrooms</h3>
+            <p class="paper-authors">Shi, <b>Fukuhara</b></p>
+          </div>
+          <div class="paper-actions">
+            <a class="pill" href="https://www.dropbox.com/scl/fi/ep6ghiih9ft2ogvhtzp8j/Evaluating-LLM-Adaptation-Techniques-to-Support-Belonging-Centered-Instruction-in-Elementary-Mathematics-Classrooms.pdf?rlkey=278oskoqxgsq9m69u8jgbbdw4&st=s62i9e3t&dl=0" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/>
+              </svg>
+              Paper
+            </a>
+            <!-- <a class="pill" href="#" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/>
+              </svg>
+              Code
+            </a> -->
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <header class="section-head">
+        <span class="kanji-num" aria-hidden="true">三</span>
+        <h2>Projects</h2>
+        <span class="ord">03 / 03</span>
+      </header>
+
+      <div class="project">
+        <div class="corner">In Build · Stanford</div>
+        <div class="paper-tag" style="margin-bottom:0">Platform / Ecosystem</div>
+        <h3>Research<span class="accent-c">C</span></h3>
         <p class="tagline">A research-industry ecosystem for university students.</p>
-        <p class="body">I work on improving the existing research ecosystem in universities by building ResearchC, a Stanford-based platform that helps student researchers find <strong>collaborators</strong>, <strong>mentorship</strong> and <strong>cross-departmental research opportunities</strong>.</p>
-        <p class="body">Through ResearchC, I envision higher-education students leveraging research for their own goals, in academia or in industry, to maximise their learning opportunities.</p>
-        <div class="actions">
-          <a class="btn" href="https://researchc-psi.vercel.app/" target="_blank" rel="noopener">Live platform</a>
-          <a class="btn quiet" href="https://v0-research-c.vercel.app/" target="_blank" rel="noopener">About the platform</a>
+        <div class="project-inner">
+          <div class="project-body">
+            <p>
+              I work on improving the existing research ecosystem in universities by building
+              <strong>ResearchC</strong>, a Stanford-based platform that helps student researchers find
+              <strong>collaborators</strong>, <strong>mentorship</strong>, and
+              <strong>cross-departmental research opportunities</strong>.
+            </p>
+            <p>
+              Through ResearchC, I envision higher-education students leveraging research for their own
+              goals — in academia or in industry — to maximise their learning opportunities.
+            </p>
+          </div>
+          <div class="project-logo">
+            <img src="https://res.cloudinary.com/dt6kl14kn/image/upload/v1779669171/ResearchC_Logo_Transparent_a9lwbo.png" alt="ResearchC logo" />
+          </div>
+        </div>
+        <div class="project-links">
+          <a class="pill" href="https://v0-research-c.vercel.app/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M14 4h6v6"/><path d="M20 4l-9 9"/>
+              <path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/>
+            </svg>
+            About the platform
+          </a>
+          <a class="pill" href="https://researchc-psi.vercel.app/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M14 4h6v6"/><path d="M20 4l-9 9"/>
+              <path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/>
+            </svg>
+            Live platform
+          </a>
         </div>
       </div>
-    </article>
 
-    <article class="project">
-      <a class="shot" href="https://eduupdate.vercel.app/" target="_blank" rel="noopener" aria-label="Open the live EduUpdate app">
-        <img src="assets/eduupdate.webp" width="1080" height="1500" loading="lazy" alt="EduUpdate's mobile interface showing a Japanese education news story" />
-      </a>
-      <div>
-        <h3 class="title">EduUpdate</h3>
-        <p class="where">In build, Tokyo. Platform and news app.</p>
+      <div class="project">
+        <div class="corner">In Build · Tokyo</div>
+        <div class="paper-tag" style="margin-bottom:0">Platform / News App</div>
+        <h3>EduUpdate</h3>
         <p class="tagline">A news app for early-career educators.</p>
-        <p class="body">I am building EduUpdate, a personalized news and learning app designed to help aspiring and early-career educators stay informed about the latest developments in education.</p>
-        <p class="body">From curated news feeds and education policy updates to foundational theories and digital transformation practices, EduUpdate makes essential knowledge accessible and actionable for the next generation of educators.</p>
-        <div class="actions">
-          <a class="btn" href="https://eduupdate.vercel.app/" target="_blank" rel="noopener">Live app</a>
-          <a class="btn quiet" href="https://v0-eduupdate-web.vercel.app/" target="_blank" rel="noopener">About the app</a>
+        <div class="project-inner">
+          <div class="project-body">
+            <p>
+              I am building <strong>EduUpdate</strong>, a personalized news and learning app designed to help aspiring and early-career educators stay informed about the latest developments in education.
+            </p>
+            <p>
+              From curated news feeds and education policy updates to foundational theories and digital transformation practices, EduUpdate makes essential knowledge accessible and actionable for the next generation of educators.
+            </p>
+          </div>
+        </div>
+          <div class="project-logo">
+            <img src="https://res.cloudinary.com/dt6kl14kn/image/upload/v1780168604/EduUpdate_Logo_akecgb.png" alt="EduUpdate logo" />
+          </div>
+        </div>
+        <div class="project-links">
+          <a class="pill" href="https://v0-eduupdate-web.vercel.app/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M14 4h6v6"/><path d="M20 4l-9 9"/>
+              <path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/>
+            </svg>
+            About the app
+          </a>
+          <a class="pill" href="https://eduupdate.vercel.app/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M14 4h6v6"/><path d="M20 4l-9 9"/>
+              <path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/>
+            </svg>
+            Live app
+          </a>
         </div>
       </div>
-    </article>
-  </section>
+    </section>
 
-  <section class="block about" id="about">
-    <h2>About</h2>
-    <div class="about-grid">
-      <div class="about-copy">
-        <p>I'm an <strong>MPhil student</strong> at the UCL Knowledge Lab, University College London, working with <a href="https://profiles.ucl.ac.uk/52201-mutlu-cukurova" target="_blank" rel="noopener">Professor Mutlu Cukurova</a>. Previously, I completed my M.S. at the Stanford Graduate School of Education, working with <a href="https://ed.stanford.edu/faculty/bdomingu" target="_blank" rel="noopener">Associate Professor Benjamin Domingue</a>.</p>
-        <p>I study the potential of <strong>large language models</strong> for student simulation combined with <strong>psychometrics</strong>, spanning applications in test design, teacher training and personalized learning. I extend this work to measuring and developing teachers' competency in AI, finding ways to help teachers navigate their experiences with rapidly advancing technologies.</p>
-        <p>I focus on the intersection of AI, education and psychometrics to achieve the simple, yet difficult, goal of education: helping students prepare for emerging opportunities in a world shaped by research, technology and AI.</p>
-      </div>
-      <dl class="facts">
-        <div><dt>Now</dt><dd>UCL Knowledge Lab, MPhil. Advisor: M. Cukurova</dd></div>
-        <div><dt>Previously</dt><dd>Stanford GSE, M.S. Education Data Science. Advisor: B. Domingue</dd></div>
-        <div><dt>Interests</dt><dd>AI measurement, IRT and CDM, LLM-simulated learners, belonging-centered instruction</dd></div>
-        <div><dt>Based in</dt><dd>London, United Kingdom</dd></div>
-      </dl>
-    </div>
+    <footer>
+      <span>Updated October 2026</span>
+    </footer>
 
-    <div class="reach">
-      <button class="btn" type="button" id="copyEmail" data-email="kazf28@stanford.edu">
-        <span class="copy-label"><span class="idle">kazf28@stanford.edu</span><span class="done">Email copied</span></span>
-      </button>
-      <a class="btn quiet" href="https://www.dropbox.com/scl/fi/ar18oiwcut6qkido5o8ep/Kaz-CV.pdf?rlkey=w2qkuv36l3tfzj0vxpp1ocd9u&st=x7zlwfok&dl=0" target="_blank" rel="noopener">CV</a>
-      <a class="btn quiet" href="https://github.com/Kazf28" target="_blank" rel="noopener">GitHub</a>
-      <a class="btn quiet" href="https://www.linkedin.com/in/kazunori-fukuhara-18717721a/" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn quiet" href="https://note.com/kaz_edtech28" target="_blank" rel="noopener" lang="ja">note 日本語ブログ</a>
-    </div>
-  </section>
-</main>
-
-<footer>Updated November 2026</footer>
+  </main>
+</div>
 
 <script>
-(() => {
-  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const $ = (s, r = document) => r.querySelector(s);
-  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
-  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+  const sections = ["about", "research", "projects"];
+  const navLinks = {};
+  sections.forEach(id => {
+    navLinks[id] = document.querySelector(`.nav a[data-nav="${id}"]`);
+  });
 
-  /* ── Hero: an item response curve drawn in mark-sheet ovals ── */
-  (function field() {
-    const hero = $('.hero'), cv = $('#field'), ctx = cv.getContext('2d');
-    const rings = document.createElement('canvas');
-    let W = 0, H = 0, dpr = 1, pitchX = 18, pitchY = 26, narrow = false, stageTop = 0;
-    let mid = 0, midV = 0, midT = 0, s = 0, sV = 0, sT = 0, amp = 0, ampV = 0, raf = 0;
-
-    function resize() {
-      const r = hero.getBoundingClientRect();
-      dpr = Math.min(devicePixelRatio || 1, 2);
-      W = r.width; H = r.height;
-      cv.width = W * dpr; cv.height = H * dpr;
-      narrow = W < 860;
-      pitchX = narrow ? 14 : 18; pitchY = narrow ? 20 : 26;
-      const stage = $('.stage');
-      stageTop = narrow ? stage.getBoundingClientRect().top - r.top : 0;
-      rings.width = cv.width; rings.height = cv.height;
-      const c = rings.getContext('2d');
-      c.scale(dpr, dpr);
-      c.strokeStyle = 'rgba(240,239,233,0.075)';
-      c.lineWidth = 1;
-      c.beginPath();
-      each((x, y) => { c.moveTo(x + rx(), y); c.ellipse(x, y, rx(), ry(), 0, 0, 7); });
-      c.stroke();
-      restMid();
-      if (reduced || !raf) kick();
-    }
-    const rx = () => (narrow ? 3 : 3.8);
-    const ry = () => (narrow ? 5 : 6.2);
-    function each(fn) {
-      for (let j = 0; j * pitchY < H + pitchY; j++) {
-        const y = H - 13 - j * pitchY;
-        if (narrow && y < stageTop) break;
-        for (let i = 0; i * pitchX < W + pitchX; i++) fn(9 + i * pitchX, y);
+  const observer = new IntersectionObserver(
+    entries => {
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+      if (visible[0]) {
+        const activeId = visible[0].target.id;
+        sections.forEach(s => navLinks[s] && navLinks[s].classList.remove("active"));
+        if (navLinks[activeId]) navLinks[activeId].classList.add("active");
       }
-    }
-    function restMid() {
-      midT = narrow ? W * 0.3 : W * 0.56;
-      sT = narrow ? W * 0.06 : W * 0.04;
-      if (!mid) { mid = midT; s = sT; }
-    }
-    function draw() {
-      ctx.setTransform(1, 0, 0, 1, 0, 0);
-      ctx.clearRect(0, 0, cv.width, cv.height);
-      ctx.drawImage(rings, 0, 0);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const span = (narrow ? H - stageTop : H) * (narrow ? 0.96 : 0.9);
-      const buckets = [[], [], [], [], []];
-      each((x, y) => {
-        const p = 1 / (1 + Math.exp(-(x - mid) / s));
-        const top = H - span * p * amp;
-        if (y < top) return;
-        const depth = y - top;
-        const k = depth < pitchY ? 0 : depth < pitchY * 2.5 ? 1 : depth < pitchY * 5 ? 2 : depth < pitchY * 9 ? 3 : 4;
-        buckets[k].push(x, y);
-      });
-      const alpha = [1, 0.72, 0.42, 0.24, 0.13];
-      buckets.forEach((b, k) => {
-        if (!b.length) return;
-        ctx.fillStyle = `rgba(255,106,77,${alpha[k]})`;
-        ctx.beginPath();
-        for (let i = 0; i < b.length; i += 2) {
-          ctx.moveTo(b[i] + rx(), b[i + 1]);
-          ctx.ellipse(b[i], b[i + 1], rx(), ry(), 0, 0, 7);
-        }
-        ctx.fill();
-      });
-    }
-    let last = 0;
-    function tick(now) {
-      raf = 0;
-      // Fixed 60 Hz steps, so the spring feels the same on any display.
-      const steps = last ? clamp(Math.round((now - last) / 16.67), 1, 240) : 1;
-      last = now;
-      const k = 0.045, d = 0.8;
-      for (let n = 0; n < steps; n++) {
-        midV = (midV + (midT - mid) * k) * d; mid += midV;
-        sV = (sV + (sT - s) * k) * d; s += sV;
-        ampV = (ampV + (1 - amp) * 0.028) * 0.84; amp += ampV;
-      }
-      draw();
-      const moving = Math.abs(midV) > 0.03 || Math.abs(midT - mid) > 0.2 || Math.abs(sV) > 0.01 || Math.abs(1 - amp) > 0.002 || Math.abs(ampV) > 0.0008;
-      if (moving) kick(); else last = 0;
-    }
-    function kick() {
-      if (reduced) { amp = 1; mid = midT; s = sT; draw(); return; }
-      if (!raf) raf = requestAnimationFrame(tick);
-    }
-    if (!reduced) {
-      hero.addEventListener('pointermove', e => {
-        const r = hero.getBoundingClientRect();
-        const lo = narrow ? 0.14 : 0.46, hi = narrow ? 0.62 : 0.68;
-        midT = clamp(e.clientX - r.left, W * lo, W * hi);
-        const fy = clamp((e.clientY - r.top) / H, 0, 1);
-        sT = W * (narrow ? 0.05 + fy * 0.07 : 0.022 + fy * 0.042);
-        kick();
-      }, { passive: true });
-      hero.addEventListener('pointerleave', () => { restMid(); kick(); });
-    }
-    new ResizeObserver(resize).observe(hero);
-    resize();
-    kick();
-  })();
+    },
+    { rootMargin: "-30% 0px -55% 0px", threshold: [0, 0.25, 0.5, 1] }
+  );
 
-  /* ── Over-knowledge instrument: Table A5 ── */
-  (function instrument() {
-    // [mean(theta - b), simulated correctness, real student correctness]
-    const T = [[-2.012,.456,.151],[-1.226,.448,.235],[-.754,.469,.305],[-.357,.543,.374],[.019,.650,.475],[.405,.710,.583],[.803,.792,.691],[1.202,.810,.785],[1.677,.841,.868],[2.484,.883,.936]];
-    const at = (x, col) => {
-      if (x <= T[0][0]) return T[0][col];
-      for (let i = 1; i < T.length; i++) if (x <= T[i][0]) {
-        const f = (x - T[i-1][0]) / (T[i][0] - T[i-1][0]);
-        return T[i-1][col] + f * (T[i][col] - T[i-1][col]);
-      }
-      return T[T.length-1][col];
-    };
-    const slider = $('#theta'), out = $('#thetaOut'), readout = $('#readout');
-    const sheetR = $('#sheetReal'), sheetL = $('#sheetLLM'), svg = $('#chart');
-
-    // One shared fill order, so each mark on the LLM's sheet is the same student.
-    let seed = 28; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
-    const order = Array.from({length: 100}, (_, i) => i).sort(() => rnd() - .5);
-    const mk = el => Array.from({length: 100}, () => { const b = document.createElement('div'); b.className = 'mark-b'; el.append(b); return b; });
-    const R = mk(sheetR), L = mk(sheetL);
-
-    const M = {l: 44, r: 16, t: 14, b: 40}, VW = 640, VH = 400;
-    const xs = x => M.l + (x + 2.012) / 4.496 * (VW - M.l - M.r);
-    const ys = y => VH - M.b - y * (VH - M.t - M.b);
-    const inv = px => -2.012 + (px - M.l) / (VW - M.l - M.r) * 4.496;
-    const pts = col => T.map(r => `${xs(r[0]).toFixed(1)},${ys(r[col]).toFixed(1)}`);
-    const NS = 'http://www.w3.org/2000/svg';
-    const el = (n, a, t) => { const e = document.createElementNS(NS, n); for (const k in a) e.setAttribute(k, a[k]); if (t != null) e.textContent = t; svg.append(e); return e; };
-    [0, .5, 1].forEach(v => {
-      el('line', {class:'grid', x1:M.l, x2:VW-M.r, y1:ys(v), y2:ys(v)});
-      el('text', {x:M.l-8, y:ys(v)+5, 'text-anchor':'end'}, `${v*100}%`);
-    });
-    [[-2,'−2'],[-1,'−1'],[0,'0'],[1,'+1'],[2,'+2']].forEach(([v,t]) => el('text', {x:xs(v), y:VH-14, 'text-anchor':'middle'}, t));
-    const crossAt = (() => { for (let i = 1; i < T.length; i++) if (T[i][1] < T[i][2]) { const a=T[i-1],b=T[i]; const d0=a[1]-a[2], d1=b[1]-b[2]; return a[0]+(d0/(d0-d1))*(b[0]-a[0]); } })();
-    const gapTop = T.filter(r => r[0] < crossAt);
-    el('polygon', {class:'gap', points:[...gapTop.map(r=>`${xs(r[0])},${ys(r[1])}`), `${xs(crossAt)},${ys(at(crossAt,1))}`, ...gapTop.slice().reverse().map(r=>`${xs(r[0])},${ys(r[2])}`)].join(' ')});
-    el('polyline', {class:'real', points:pts(2).join(' ')});
-    el('polyline', {class:'llm', points:pts(1).join(' ')});
-    el('text', {class:'lab-llm', x:xs(-1.9), y:ys(.456)-14}, 'LLM simulation');
-    el('text', {class:'lab-real', x:xs(-1.42), y:ys(.15)+4}, 'Real students');
-    const cursor = el('line', {class:'cursor', y1:M.t-6, y2:VH-M.b});
-    const dotL = el('ellipse', {rx:7, ry:10, fill:'var(--mark)'});
-    const dotR = el('ellipse', {rx:7, ry:10, fill:'var(--ink)'});
-
-    let lastR = -1, lastL = -1;
-    function set(x) {
-      const pR = at(x, 2), pL = at(x, 1), nR = Math.round(pR*100), nL = Math.round(pL*100);
-      out.textContent = `${x < 0 ? '−' : '+'}${Math.abs(x).toFixed(2)}`;
-      cursor.setAttribute('x1', xs(x)); cursor.setAttribute('x2', xs(x));
-      dotL.setAttribute('cx', xs(x)); dotL.setAttribute('cy', ys(pL));
-      dotR.setAttribute('cx', xs(x)); dotR.setAttribute('cy', ys(pR));
-      if (nR !== lastR || nL !== lastL) {
-        const shared = Math.min(nR, nL);
-        order.forEach((idx, rank) => {
-          R[idx].classList.toggle('on', rank < nR);
-          L[idx].classList.toggle('on', rank < shared);
-          L[idx].classList.toggle('over', rank >= shared && rank < nL);
-        });
-        const gap = nL - nR;
-        readout.innerHTML = `<span class="a">${nR} of 100 students get it right.</span> <span class="b">The LLM playing them: ${nL}.</span>`;
-        slider.setAttribute('aria-valuetext', `Ability minus difficulty ${x.toFixed(2)}: real students ${nR} percent correct, LLM ${nL} percent, gap ${gap} points`);
-        lastR = nR; lastL = nL;
-      }
-    }
-    let sweeping = false, touched = false;
-    slider.addEventListener('input', () => { touched = true; sweeping = false; set(+slider.value); });
-    function fromPointer(e) {
-      const r = svg.getBoundingClientRect();
-      const x = clamp(inv((e.clientX - r.left) / r.width * VW), -2.01, 2.48);
-      slider.value = x; touched = true; sweeping = false; set(x);
-    }
-    let dragging = false;
-    svg.addEventListener('pointerdown', e => { dragging = true; svg.setPointerCapture(e.pointerId); fromPointer(e); });
-    svg.addEventListener('pointermove', e => { if (dragging) fromPointer(e); });
-    ['pointerup', 'pointercancel'].forEach(t => svg.addEventListener(t, () => { dragging = false; }));
-    set(-2.01);
-
-    // Sweep once on first sight to explain the control, ending on the striking case.
-    if (!reduced) {
-      const io = new IntersectionObserver(es => {
-        if (!es[0].isIntersecting || touched) return;
-        io.disconnect();
-        sweeping = true;
-        const t0 = performance.now(), D = 2100;
-        const ease = t => t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3)/2;
-        (function step(now) {
-          if (!sweeping) return;
-          const t = clamp((now - t0) / D, 0, 1);
-          const x = 2.48 + (-2.01 - 2.48) * ease(t);
-          slider.value = x; set(x);
-          if (t < 1) requestAnimationFrame(step); else sweeping = false;
-        })(t0);
-      }, { threshold: 0.4 });
-      io.observe($('#instrument'));
-    }
-  })();
-
-  /* ── Prompting conditions: section 5.2.1 and Appendix C ── */
-  (function conditions() {
-    const C = {
-      persona: { v: 96.3,
-        copy: 'Describe a student in words and the LLM reaches 96.3% correct, against 54.0% for the students it is imitating. This is severe over-knowledge.',
-        prompt: `Student profile (Baseline):\n- Fact: medium/2/B\n- Inference: low/1/C\n- Negation Fact: low/1/C\n- Reference: high/3/A\n\nUse the student's level for question's category and your judgment on question difficulty to set correctness_probability.` },
-      irt: { v: 66.0,
-        copy: 'Give it Rasch ability and item difficulty as numbers and it lands much closer, at 66.0%. Recovered abilities correlate with the inputs at ρ&nbsp;=&nbsp;0.913.',
-        prompt: `Student profile (IRT):\n- English reading ability (theta): ABILITY\n\nCompare theta and item difficulty (b).\nIf theta is lower than b, correctness_probability should generally be below 0.5, where bigger the difference, lower the correctness_probability.` },
-      cdm: { v: 50.2,
-        copy: 'Give it a skill-mastery profile and it comes closest, at 50.2%. Yet agreement with each real answer stays low, at 0.590, so a matching average is not a matching student.',
-        prompt: `Student profile (CDM):\nSkill mastery (1 = mastered, 0 = not mastered):\n- Syntax: 0/1\n- Extract Explicit Information: 0/1\n- Understand Implicit Information: 0/1\n- Vocabulary Level 1: 0/1\n\nCompare the required skills with the student's mastery profile above.` },
-    };
-    const seg = $('#seg'), thumb = $('.thumb', seg), btns = $$('button', seg);
-    const fill = $('#simFill'), val = $('#simVal'), copy = $('#condCopy'), box = $('#promptBox');
-    function place(b) { thumb.style.width = b.offsetWidth + 'px'; thumb.style.transform = `translateX(${b.offsetLeft - 4}px)`; }
-    let timer;
-    function pick(key, first) {
-      const c = C[key], b = btns.find(x => x.dataset.c === key);
-      btns.forEach(x => x.setAttribute('aria-pressed', x === b));
-      place(b);
-      fill.style.transform = `scaleX(${c.v / 100})`;
-      val.textContent = c.v.toFixed(1) + '%';
-      copy.innerHTML = c.copy;
-      clearTimeout(timer);
-      if (first) { box.textContent = c.prompt; return; }
-      box.classList.add('swap');
-      timer = setTimeout(() => { box.textContent = c.prompt; box.classList.remove('swap'); }, 140);
-    }
-    btns.forEach(b => b.addEventListener('click', () => pick(b.dataset.c)));
-    new ResizeObserver(() => place(btns.find(x => x.getAttribute('aria-pressed') === 'true'))).observe(seg);
-    pick('persona', true);
-    if (document.fonts) document.fonts.ready.then(() => place(btns.find(x => x.getAttribute('aria-pressed') === 'true')));
-  })();
-
-  /* ── Next-attempt game: each attempt really runs against the tests ── */
-  (function game() {
-    const tests = [[1,3,5],[1,2,3],[5],[2,9,4],[-1,-5,-3],[-4,-2,-7],[0,0,0],[7,7,7],[4,8],[-3,-1],[10,2,30,4],[2,4,6,8]];
-    const expected = a => Math.max(...a);
-    const A = [
-      { run: a => { let best = 0; for (let i = 0; i < a.length; i++) if (a[i] < best) best = a[i]; return best; },
-        src: ['int maxValue(int a[], int n) {','  int best = 0;','  for (int i = 0; i < n; i++) {','    if (a[i] < best) best = a[i];','  }','  return best;','}'], changed: [] },
-      { run: a => { let best = 0; for (let i = 0; i < a.length; i++) if (a[i] > best) best = a[i]; return best; },
-        src: ['int maxValue(int a[], int n) {','  int best = 0;','  for (int i = 0; i < n; i++) {','    if (a[i] > best) best = a[i];','  }','  return best;','}'], changed: [3] },
-      { run: a => { let best = a[0]; for (let i = 1; i < a.length - 1; i++) if (a[i] > best) best = a[i]; return best; },
-        src: ['int maxValue(int a[], int n) {','  int best = a[0];','  for (int i = 1; i < n - 1; i++) {','    if (a[i] > best) best = a[i];','  }','  return best;','}'], changed: [1, 2] },
-      { run: a => { if (a.length === 1) return a[0]; let best = a[0]; for (let i = 1; i < a.length - 1; i++) if (a[i] > best) best = a[i]; return best; },
-        src: ['int maxValue(int a[], int n) {','  if (n == 1) return a[0];','  int best = a[0];','  for (int i = 1; i < n - 1; i++) {','    if (a[i] > best) best = a[i];','  }','  return best;','}'], changed: [1] },
-      { run: a => { if (a.length === 1) return a[0]; let best = a[0]; for (let i = 1; i <= a.length - 1; i++) if (a[i] > best) best = a[i]; return best; },
-        src: ['int maxValue(int a[], int n) {','  if (n == 1) return a[0];','  int best = a[0];','  for (int i = 1; i <= n - 1; i++) {','    if (a[i] > best) best = a[i];','  }','  return best;','}'], changed: [3] },
-    ];
-    const results = A.map(x => tests.map(t => x.run(t) === expected(t)));
-    const scores = results.map(r => r.filter(Boolean).length);
-    const kind = (a, b) => b > a ? 'improves' : b < a ? 'regresses' : 'plateaus';
-    const past = { improves: 'improved', regresses: 'regressed', plateaus: 'plateaued' };
-
-    const code = $('#code'), label = $('#attemptLabel'), matrix = $('#matrix'), ask = $('#ask');
-    let cur = 0, hits = 0;
-
-    function esc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
-    function showCode(i) {
-      const a = A[i];
-      code.innerHTML = a.src.map((l, n) => `<span class="ln${a.changed.includes(n) ? ' changed' : ''}">${esc(l)}</span>`).join('');
-      label.textContent = `Attempt ${i + 1} of ${A.length}: return the largest value`;
-    }
-    function addRow(i) {
-      const row = document.createElement('div');
-      row.className = 'row';
-      row.setAttribute('role', 'img');
-      row.setAttribute('aria-label', `Attempt ${i + 1}: ${scores[i]} of 12 tests pass`);
-      row.innerHTML = `<span>Attempt ${i + 1}</span><div class="tests">${results[i].map((_, n) => `<span class="t" style="--i:${n}"></span>`).join('')}</div><span class="score">${scores[i]}/12</span>`;
-      matrix.append(row);
-      const ts = $$('.t', row);
-      row.offsetWidth; // commit the empty state so the marks fill in one by one
-      ts.forEach((t, n) => t.classList.toggle('pass', results[i][n]));
-    }
-    function question(note) {
-      ask.innerHTML = `<p>What happens on attempt ${cur + 2}?</p><div class="choices">
-        <button class="btn quiet" type="button" data-g="improves">Improves</button>
-        <button class="btn quiet" type="button" data-g="plateaus">Plateaus</button>
-        <button class="btn quiet" type="button" data-g="regresses">Regresses</button></div>
-        <p class="verdict" style="font-weight:400">${note || ''}</p>`;
-    }
-    function finish(note) {
-      const n = A.length - 1;
-      ask.innerHTML = `<p class="verdict" style="font-weight:400">${note}</p>
-        <p style="margin-top:8px">You called ${hits} of ${n}.</p>
-        <p class="verdict" style="font-weight:400;margin-top:0">The final fix was one character, <code style="font-family:var(--mono);font-size:.9em">&lt;</code> to <code style="font-family:var(--mono);font-size:.9em">&lt;=</code>. Trajectories like this one are why next-attempt prediction is hard.</p>
-        <div class="choices"><button class="btn quiet" type="button" data-restart>Run it again</button></div>`;
-    }
-    ask.addEventListener('click', e => {
-      const b = e.target.closest('button');
-      if (!b) return;
-      if (b.dataset.restart !== undefined) { start(); return; }
-      const g = b.dataset.g; if (!g) return;
-      const truth = kind(scores[cur], scores[cur + 1]);
-      const hit = g === truth; if (hit) hits++;
-      cur++;
-      showCode(cur); addRow(cur);
-      const note = `${hit ? '<span class="hit">Right.</span>' : 'Not this time.'} It <strong>${past[truth]}</strong>, ${scores[cur - 1]} to ${scores[cur]} tests.`;
-      if (cur < A.length - 1) question(note); else finish(note);
-    });
-    function start() {
-      cur = 0; hits = 0; matrix.textContent = '';
-      showCode(0); addRow(0); question();
-    }
-    start();
-  })();
-
-  /* ── Papers: citations ── */
-  $$('[data-cite]').forEach(b => b.addEventListener('click', () => {
-    const open = $('#' + b.dataset.cite).classList.toggle('open');
-    b.setAttribute('aria-expanded', open);
-  }));
-  async function copy(text, btn) {
-    try {
-      await navigator.clipboard.writeText(text);
-      btn.classList.add('copied');
-      setTimeout(() => btn.classList.remove('copied'), 1600);
-    } catch { if (btn.id === 'copyEmail') location.href = 'mailto:' + text; }
-  }
-  $$('[data-copy-bib]').forEach(b => b.addEventListener('click', () => copy(b.closest('.cite').querySelector('pre').textContent, b)));
-  $('#copyEmail').addEventListener('click', e => copy(e.currentTarget.dataset.email, e.currentTarget));
-
-  /* ── Nav position ── */
-  (function nav() {
-    const links = $$('.bar nav a'), tick = $('.bar .tick');
-    function mark(id) {
-      links.forEach(a => {
-        const on = a.dataset.nav === id;
-        a.setAttribute('aria-current', on);
-        if (on) { tick.style.opacity = 1; tick.style.transform = `translateX(${a.offsetLeft + 12}px) scaleX(${a.offsetWidth - 24})`; }
-      });
-      if (!links.some(a => a.dataset.nav === id)) tick.style.opacity = 0;
-    }
-    const groups = { top: 'top', research: 'research', codeinsight: 'research', papers: 'papers', projects: 'projects', about: 'about' };
-    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) mark(groups[e.target.id]); }), { rootMargin: '-45% 0px -50% 0px' });
-    Object.keys(groups).forEach(id => io.observe(document.getElementById(id)));
-  })();
-})();
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
 </script>
+
 </body>
 </html>
